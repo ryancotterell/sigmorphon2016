@@ -19,8 +19,8 @@
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h3>
+      <h2>
+<a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h2>
 
 <p>The SIGMORPHON 2016 shared task is 
 morphological paradigm completion. The goal, roughly
@@ -33,8 +33,8 @@ morphology has received a flurry of attention recently
 in the NLP literature (Dreyer and Eisner (2009), Dreyer and Eisner (2011),
 Durett an DeNero (2013), Hulden et al. (2014), Nicolai and Kondrak (2015), <em>inter alia</em>).</p>
 
-<h3>
-<a id="paradigm-completion--a-brief-introduction" class="anchor" href="#paradigm-completion--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paradigm Completion – A Brief Introduction</h3>
+<h2>
+<a id="paradigm-completion--a-brief-introduction" class="anchor" href="#paradigm-completion--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paradigm Completion – A Brief Introduction</h2>
 
 <p>In many of the world's languages words change their form to express different syntactic
 and semantic relationships in a structured fashion. For instance, English generally overtly marks the plural with a final 
@@ -49,8 +49,8 @@ In Polish, for example, a single verb can have over a 100 forms! This sort of li
 productivity creates data sparsity problems. With this shared task, we hope to
 make a dent in our ability to automate this aspect of computational morphology.</p>
 
-<h3>
-<a id="the-languages" class="anchor" href="#the-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Languages</h3>
+<h2>
+<a id="the-languages" class="anchor" href="#the-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Languages</h2>
 
 <p>In our selection of languages, we have sought a representative
 sample of the world's languages (albeit biased to those with rich inflection).
@@ -70,28 +70,80 @@ and formatted according to schema described in Sylak-Glassman et al. (2015).</p>
 <li><p><strong>Armenian:</strong> The Armenian language is an Indo-European language spoken by the Armenians. It is the official language of the Republic of Armenia and the self-proclaimed Nagorno-Karabakh Republic. It has historically been spoken throughout the Armenian Highlands and today is widely spoken in the Armenian diaspora. In total the language has 6 million speakers.</p></li>
 </ul>
 
-<h3>
-<a id="shared-task-philosophy" class="anchor" href="#shared-task-philosophy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shared Task Philosophy</h3>
+<h2>
+<a id="shared-task-philosophy" class="anchor" href="#shared-task-philosophy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shared Task Philosophy</h2>
 
-<h4>
-<a id="task-1--reranking-paradigms" class="anchor" href="#task-1--reranking-paradigms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 — Reranking Paradigms</h4>
-
-<p>The first task we consider is reranking</p>
-
-<h4>
-<a id="task-2--full-paradigm-generation" class="anchor" href="#task-2--full-paradigm-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 — Full Paradigm Generation</h4>
-
-<h5>
-<a id="track-1--lemma-to-full-paradigm" class="anchor" href="#track-1--lemma-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Track 1 — Lemma to Full Paradigm</h5>
-
-<h5>
-<a id="track-2--slot-to-full-paradigm" class="anchor" href="#track-2--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Track 2 — Slot to Full Paradigm</h5>
-
-<h5>
-<a id="track-3--slot-to-full-paradigm" class="anchor" href="#track-3--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Track 3 — Slot to Full Paradigm++</h5>
+<p>A primary motivation behind this shared task is to spread
+interest in computational morphology. In comparison 
+to computational efforts in syntax and semantics, morphology
+receives far less attention. This is in part because
+researchers often work on English, a inflectionally impoverished
+language, but also because there are fewer standardized resources. 
+With this in mind, we designed our first shared task to be
+both useful, but also <em>easily accessible</em> to researchers
+and students who have previously considered the area. </p>
 
 <h3>
-<a id="bibliography" class="anchor" href="#bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bibliography</h3>
+<a id="task-1--reranking-reinflection" class="anchor" href="#task-1--reranking-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 — Reranking Reinflection</h3>
+
+<p>The first task we consider is reranking of reiinflection.
+The goal is to be able to learn function that reinflects
+a word form to another word form in the same paradigm. For instance,
+the system may be given "eating" and told to generate the past participle,
+which is "eaten". The goal of this task is to be relatively easy and
+have a lower barrier to entry. We will provide
+each system with a set of word forms, their structured morphological
+tag, i.e, as described in Sylak-Glassman et al. (2015), and the structured
+morphological tag of the <em>target word form</em>. Additionally, each system
+is given a set of candidates to chose among. </p>
+
+<h3>
+<a id="task-2--full-paradigm-generation" class="anchor" href="#task-2--full-paradigm-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 — Full Paradigm Generation</h3>
+
+<p>The task task is full-blown paradigm completion. The goal
+here is to generate the <em>full paradigm</em> from a given 
+word form in the paradigm in various settings. We have
+ordered the settings in order of their difficult and we expect
+systems to be able compete in all three tracks.</p>
+
+<h4>
+<a id="track-1--lemma-to-full-paradigm" class="anchor" href="#track-1--lemma-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Track 1 — Lemma to Full Paradigm</h4>
+
+<p>The first setting we consider is generating
+a full paradigm from a lemma. This is
+the task introduced in Durrett and DeNero (2013). </p>
+
+<h4>
+<a id="track-2--slot-to-full-paradigm" class="anchor" href="#track-2--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Track 2 — Slot to Full Paradigm</h4>
+
+<p>The second task is generating the a full paradigm
+from an arbitrary word form in the paradigm. This is very similar
+to the task introduced in Dreyer and Eisner (2009), 
+with the exception that we will never give a system
+more than one word form from which to generalize.
+To be more concrete, the training data will consist of
+pairs of word forms labeled with their structured tag
+and complete paradigm. The word form will be a slot sampled
+uniformly at random from the paradigm.</p>
+
+<h4>
+<a id="track-3--slot-to-full-paradigm" class="anchor" href="#track-3--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Track 3 — Slot to Full Paradigm++</h4>
+
+<p>The third track is a variation of Track 2 with two small twist: we will
+(i) not provide the structured tag with the word form in the training or 
+test data and (ii) the training data will have incomplete paradigms, i.e., only
+a subset of the slots will be given to train on. Both of these conditions
+represent noise that one should expect to find in the "wild", where data is often
+missing and unlabeled. In short, we would like to make computational morphological robust enough
+to function in the age of social media. </p>
+
+<h2>
+<a id="evaluation" class="anchor" href="#evaluation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
+
+<p>TO BE DECIDED</p>
+
+<h2>
+<a id="bibliography" class="anchor" href="#bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bibliography</h2>
 
 <ul>
 <li>Greg Durrett, John DeNero. Supervised Learning of Complete Morphological Paradigms. NAACL. 2013.</li>
@@ -113,7 +165,7 @@ and formatted according to schema described in Sylak-Glassman et al. (2015).</p>
 <li>Christo Kirov</li>
 <li>Colin Cherry </li>
 <li>Jason Eisner</li>
-<li>Mans Hulden</li>
+<li>Mans Hulden,</li>
 <li>Greg Kondrak</li>
 <li>David Yarowsky</li>
 <li>Garrett Nicolai</li>
