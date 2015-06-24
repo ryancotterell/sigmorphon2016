@@ -22,18 +22,18 @@
       <h2>
 <a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h2>
 
-<p>The SIGMORPHON 2016 shared task is 
-morphological paradigm completion. The goal, roughly
-stated, is to fill out a morphological paradigm (a nominal or verbal inflection table)
-given some incomplete representation of the whole paradigm,
-e.g., the lemma or a partial (potentially noisy) set of
-slots of the paradigm. This area of computational
+<p>The SIGMORPHON 2016 shared task is morphological reinflection. The
+goal is to generate a new inflection given some word form.
+In its most general conception the task entails both analysis of a
+given form and then generation of new forms. Ideally, we would like to
+generate a whole morphological paradigm (a nominal or verbal
+inflection table). This area of computational
 morphology has received a flurry of attention recently
 in the NLP literature (Dreyer and Eisner (2009), Dreyer and Eisner (2011),
 Durett an DeNero (2013), Hulden et al. (2014), Nicolai, Cherry and Kondrak (2015), <em>inter alia</em>).</p>
 
 <h2>
-<a id="paradigm-completion--a-brief-introduction" class="anchor" href="#paradigm-completion--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paradigm Completion – A Brief Introduction</h2>
+<a id="paradigm-completion--a-brief-introduction" class="anchor" href="#paradigm-completion--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Morphological Inflection – A Brief Introduction</h2>
 
 <p>In many of the world's languages words change their form to express different syntactic
 and semantic relationships in a structured fashion. For instance, English generally overtly marks the plural with a final 
@@ -66,6 +66,12 @@ processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Spe
 <li><p><strong>Greenlandic:</strong> Greenlandic is an Eskimo–Aleut language spoken by about 57,000 Greenlandic Inuit people in Greenland. It is closely related to the Inuit languages in Canada, such as Inuktitut. The main dialect, Kalaallisut or West Greenlandic, has been the official language of the Greenlandic autonomous territory since June 2009.</p></li>
 <li><p><strong>Navajo:</strong> Navajo is a language of the Athabaskan branch of the Na-Dené family, by which it is related to languages spoken across the western areas of North America. Navajo is spoken primarily in the Southwestern United States, especially in the Navajo Nation political area. It is one of the most widely spoken Native American languages with almost 170,000 Americans speaking Navajo at home as of 2011.</p></li>
 <li><p><strong>Armenian:</strong> The Armenian language is an Indo-European language spoken by the Armenians. It is the official language of the Republic of Armenia and the self-proclaimed Nagorno-Karabakh Republic. It has historically been spoken throughout the Armenian Highlands and today is widely spoken in the Armenian diaspora. In total the language has 6 million speakers.</p></li>
+<li><p><strong>Surprise Language 1:</strong> A new language, whose identity (and corresponding data) will only be given
+out right before evaluation.
+<li><p><strong>Surprise Language 2:</strong> A new language, whose identity (and corresponding data) will only be given
+out right before evaluation.
+
+
 </ul>
 
 <h2>
@@ -153,9 +159,23 @@ to function in the age of social media. </p>
 <p>[Data Link]</p>
 
 <h2>
+<a id="external_resources" class="anchor" href="#external_resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
+<ul>
+<li><strong>Monolingual Corpora:</strong> We will provide monolingual corpora for all languages. These will be Wikipedia backup
+dumps. We insist that no other monolingual resources be used and that all systems report numbers both <em>with</em> and <em>without</em> the resources</li>
+</ul>
+
+<p>We will provide the test sets for evaluation 72 hours before the deadline along with the train and dev sets for
+the surprise languages.</p>
+
+<h2>
+
+
+<h2>
 <a id="evaluation" class="anchor" href="#evaluation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
 
-<p>TO BE DETERMINED</p>
+<p>We will provide the test sets for evaluation 72 hours before the deadline along with the train and dev sets for
+the surprise languages.</p>
 
 <h2>
 <a id="bibliography" class="anchor" href="#bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bibliography</h2>
@@ -170,21 +190,6 @@ to function in the age of social media. </p>
 <li>Sylak-Glassman, John, Kirov, Christo,  Yarowsky, David and Que, Roger. A Language-Independent Feature Schema for Inflectional Morphology. ACL. 2015.</li>
 </ul>
 
-<h3>
-<a id="organizers" class="anchor" href="#organizers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organizers</h3>
-
-<ul>
-<li>Ryan Cotterell (<a href="mailto:ryan.cotterell@gmail.com">ryan.cotterell@gmail.com</a>)</li>
-<li>Thomas Müller</li>
-<li>John Sylak-Glassman</li>
-<li>Christo Kirov</li>
-<li>Colin Cherry </li>
-<li>Jason Eisner</li>
-<li>Mans Hulden,</li>
-<li>Greg Kondrak</li>
-<li>David Yarowsky</li>
-<li>Garrett Nicolai</li>
-</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/ryancotterell/sigmorphon2016">SIGMORPHON 2016 Shared Task: Paradigm Completion</a> is maintained by <a href="https://github.com/ryancotterell">ryancotterell</a>.</span>
