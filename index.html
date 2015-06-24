@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>SIGMORPHON 2016 Shared Task: Morphological Reinflection</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -11,7 +12,9 @@
   </head>
   <body>
     <section class="page-header">
+
       <h1 class="project-name">SIGMORPHON 2016 Shared Task: <br> Morphological Reinflection</h1>
+
       <h2 class="project-tagline"></h2>
       <a href="https://github.com/ryancotterell/sigmorphon2016" class="btn">View on GitHub</a>
       <a href="https://github.com/ryancotterell/sigmorphon2016/zipball/master" class="btn">Download .zip</a>
@@ -21,6 +24,7 @@
     <section class="main-content">
       <h2>
 <a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h2>
+
 
 <p>The SIGMORPHON 2016 shared task is morphological reinflection. The
 goal is to generate a new inflection given some word form.
@@ -48,31 +52,6 @@ In Polish, for example, a single verb can have over a 100 forms! This sort of li
 productivity creates data sparsity problems for most other NLP tasks. With this shared task, we hope to
 make a progress in the community's ability to automate this aspect of computational morphology.</p>
 
-<h2>
-<a id="the-languages" class="anchor" href="#the-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Languages</h2>
-
-<p>In our selection of languages, we have sought a representative
-sample of the world's languages (albeit biased to those with rich inflection).
-We chose the following 8 languages: Spanish, German, Finnish, Russian, Turkish, Greenlandic, Navajo and Armenian.
-All of the data has been scraped from Wiktionary and undergone additional
-processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Speech Processing</a> at <a href="https://www.jhu.edu/">Johns Hopkins University</a>. The data are formatted according to schema described in Sylak-Glassman et al. (2015).</p>
-
-<ul>
-<li><p><strong>Spanish</strong>: Spanish is a Romance language, branch of the larger Indo-European family, that originated in the Castile region of Spain. More than 400 million people speak Spanish as a native language, making it second only to Mandarin in terms of its number of native speakers worldwide. </p></li>
-<li><p><strong>German:</strong> German is a West Germanic language that derives most of its vocabulary from the Germanic branch of the Indo-European language family. It is spoken by 90 million people in central Europe.</p></li>
-<li><p><strong>Finnish:</strong> Finnish is the language spoken by the majority of the population in Finland and by ethnic Finns outside Finland. It has 5.4 million speakers.</p></li>
-<li><p><strong>Russian:</strong> Russian is an East Slavic language and an official language in Russia, Belarus, Kazakhstan, and Kyrgyzstan. It is an unofficial but widely spoken language in Ukraine, Moldova, Latvia and Estonia. Russian belongs to the family of Indo-European languages and is one of the three living members of the East Slavic languages. It has 150 million native speakers and 260 speakers total.</p></li>
-<li><p><strong>Turkish:</strong> Turkish is the most widely spoken of the Turkic languages, with around 63 million native speakers. Speakers are located predominantly in Turkey, with smaller groups in Germany, Bulgaria, Macedonia, Northern Cyprus, Greece, the Caucasus, and other parts of Europe and Central Asia.</p></li>
-<li><p><strong>Greenlandic:</strong> Greenlandic is an Eskimo–Aleut language spoken by about 57,000 Greenlandic Inuit people in Greenland. It is closely related to the Inuit languages in Canada, such as Inuktitut. The main dialect, Kalaallisut or West Greenlandic, has been the official language of the Greenlandic autonomous territory since June 2009.</p></li>
-<li><p><strong>Navajo:</strong> Navajo is a language of the Athabaskan branch of the Na-Dené family, by which it is related to languages spoken across the western areas of North America. Navajo is spoken primarily in the Southwestern United States, especially in the Navajo Nation political area. It is one of the most widely spoken Native American languages with almost 170,000 Americans speaking Navajo at home as of 2011.</p></li>
-<li><p><strong>Armenian:</strong> The Armenian language is an Indo-European language spoken by the Armenians. It is the official language of the Republic of Armenia and the self-proclaimed Nagorno-Karabakh Republic. It has historically been spoken throughout the Armenian Highlands and today is widely spoken in the Armenian diaspora. In total the language has 6 million speakers.</p></li>
-<li><p><strong>Surprise Language 1:</strong> A new language, whose identity (and corresponding data) will only be given
-out right before evaluation.
-<li><p><strong>Surprise Language 2:</strong> A new language, whose identity (and corresponding data) will only be given
-out right before evaluation.
-
-
-</ul>
 
 <h2>
 <a id="shared-task-philosophy" class="anchor" href="#shared-task-philosophy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shared Task Philosophy</h2>
@@ -90,7 +69,7 @@ all resources required for this shared task will be open source, that is
 available to everyone for free. </p>
 
 <h3>
-<a id="task-1--reranking-reinflection" class="anchor" href="#task-1--reranking-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 — Reranking Reinflection</h3>
+<a id="task-1--reranking-reinflection" class="anchor" href="#task-1--reranking-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Reranking Reinflection</h3>
 
 <p>The first task we consider is reranking of reinflection.
 The goal is to be able to learn function that reinflects
@@ -104,10 +83,14 @@ morphological tag of the <em>target word form</em>. Additionally, each system
 is given a set of candidates to chose among allowing this task to
 perform with simpler classifiers. </p>
 
-<p><a href="">Data Link</a></p>
+<ul>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/dev">Dev</a></li>
+<li>Test</li>
+</ul>
 
 <h3>
-<a id="task-2--full-paradigm-generation" class="anchor" href="#task-2--full-paradigm-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 — Full Paradigm Generation</h3>
+<a id="task-2--full-paradigm-generation" class="anchor" href="#task-2--full-paradigm-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Full Paradigm Generation</h3>
 
 <p>The second task is full-blown paradigm completion. The goal
 here is to generate the <em>full paradigm</em> from a given 
@@ -115,10 +98,8 @@ word form in the paradigm in various settings. We have
 ordered the settings in order of their difficult and we expect
 systems to be able compete in all three tracks.</p>
 
-<p>[Data Link]</p>
-
 <h4>
-<a id="setting-1--lemma-to-full-paradigm" class="anchor" href="#setting-1--lemma-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 1 — Lemma to Full Paradigm</h4>
+<a id="setting-1--lemma-to-full-paradigm" class="anchor" href="#setting-1--lemma-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 1 – Lemma to Full Paradigm</h4>
 
 <p>The first setting we consider is generating
 a full paradigm from a lemma. This is
@@ -127,11 +108,14 @@ This setting is by far the easiest and a variety
 of researched, e.g., Hulden et al. (2014), and Nicolai, Cherry and Kondrak (2015),
 have achieved developed high-performance systems. </p>
 
-<p>[Train Link]
-[Dev Link]</p>
+<ul>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting1/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting1/dev">Dev</a></li>
+<li>Test</li>
+</ul>
 
 <h4>
-<a id="setting-2--slot-to-full-paradigm" class="anchor" href="#setting-2--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 2 — Slot to Full Paradigm</h4>
+<a id="setting-2--slot-to-full-paradigm" class="anchor" href="#setting-2--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 2 – Slot to Full Paradigm</h4>
 
 <p>The second task is generating the full paradigm
 from an arbitrary word form in the paradigm. This is very similar
@@ -143,20 +127,48 @@ pairs of word forms labeled with their structured tag
 and corresponding complete paradigm. The word form will be a slot sampled
 uniformly at random from the paradigm.</p>
 
-<p>[Data Link]</p>
+<ul>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/dev">Dev</a></li>
+<li>Test</li>
+</ul>
 
 <h4>
-<a id="setting-3--slot-to-full-paradigm" class="anchor" href="#setting-3--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 3 — Slot to Full Paradigm++</h4>
+<a id="setting-3--slot-to-full-paradigm" class="anchor" href="#setting-3--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 3 – Slot to Full Paradigm++</h4>
 
 <p>The third track is a variation of Track 2 with two small twists: we will
 (i) not provide the structured tag with the word form in the training or 
 test data and (ii) the training data will have incomplete paradigms, i.e., only
 a subset of the slots will be given to train on. Both of these conditions
 represent noise that one should expect to find in the "wild", where data is often
-unlabeled and missing. In short, we would like to make computational morphological robust enough
-to function in the age of social media. </p>
+unlabeled and missing. In short, we would like to make computational morphological systems
+robust. </p>
 
-<p>[Data Link]</p>
+<ul>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting3/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting3/dev">Dev</a></li>
+<li>Test</li>
+</ul>
+
+<h2>
+<a id="the-languages" class="anchor" href="#the-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Languages</h2>
+
+<p>In our selection of languages, we have sought a representative
+sample of the world's languages (albeit biased to those with rich inflection).
+We chose the following 8 languages: Spanish, German, Finnish, Russian, Turkish, Greenlandic, Navajo and Armenian.
+All of the data has been scraped from Wiktionary and undergone additional
+processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Speech Processing</a> at <a href="https://www.jhu.edu/">Johns Hopkins University</a>. The data are formatted according to the schema described in Sylak-Glassman et al. (2015).</p>
+
+<ul>
+<li><p><strong>Spanish</strong>: Spanish is a Romance language, branch of the larger Indo-European family, that originated in the Castile region of Spain. More than 400 million people speak Spanish as a native language, making it second only to Mandarin in terms of its number of native speakers worldwide. </p></li>
+<li><p><strong>German:</strong> German is a West Germanic language that derives most of its vocabulary from the Germanic branch of the Indo-European language family. It is spoken by 90 million people in central Europe.</p></li>
+<li><p><strong>Finnish:</strong> Finnish is the language spoken by the majority of the population in Finland and by ethnic Finns outside Finland. It has 5.4 million speakers.</p></li>
+<li><p><strong>Russian:</strong> Russian is an East Slavic language and an official language in Russia, Belarus, Kazakhstan, and Kyrgyzstan. It is an unofficial but widely spoken language in Ukraine, Moldova, Latvia and Estonia. Russian belongs to the family of Indo-European languages and is one of the three living members of the East Slavic languages. It has 150 million native speakers and 260 speakers total.</p></li>
+<li><p><strong>Turkish:</strong> Turkish is the most widely spoken of the Turkic languages, with around 63 million native speakers. Speakers are located predominantly in Turkey, with smaller groups in Germany, Bulgaria, Macedonia, Northern Cyprus, Greece, the Caucasus, and other parts of Europe and Central Asia.</p></li>
+<li><p><strong>Greenlandic:</strong> Greenlandic is an Eskimo–Aleut language spoken by about 57,000 Greenlandic Inuit people in Greenland. It is closely related to the Inuit languages in Canada, such as Inuktitut. The main dialect, Kalaallisut or West Greenlandic, has been the official language of the Greenlandic autonomous territory since June 2009.</p></li>
+<li><p><strong>Navajo:</strong> Navajo is a language of the Athabaskan branch of the Na-Dené family, by which it is related to languages spoken across the western areas of North America. Navajo is spoken primarily in the Southwestern United States, especially in the Navajo Nation political area. It is one of the most widely spoken Native American languages with almost 170,000 Americans speaking Navajo at home as of 2011.</p></li>
+<li><p><strong>Armenian:</strong> The Armenian language is an Indo-European language spoken by the Armenians. It is the official language of the Republic of Armenia and the self-proclaimed Nagorno-Karabakh Republic. It has historically been spoken throughout the Armenian Highlands and today is widely spoken in the Armenian diaspora. In total the language has 6 million speakers.</p></li>
+</ul>
 
 <h2>
 <a id="external_resources" class="anchor" href="#external_resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
@@ -174,8 +186,18 @@ the surprise languages.</p>
 <h2>
 <a id="evaluation" class="anchor" href="#evaluation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
 
+
 <p>We will provide the test sets for evaluation 72 hours before the deadline along with the train and dev sets for
 the surprise languages.</p>
+
+<h2>
+<a id="external-resources" class="anchor" href="#external-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>External Resources</h2>
+
+<p>In order to ensure a level playing field, we insist that only
+external resources listed below be used in the competing
+systems. We may further ask for ablation studies regarding
+these resources. </p>
+
 
 <h2>
 <a id="bibliography" class="anchor" href="#bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bibliography</h2>
@@ -190,9 +212,10 @@ the surprise languages.</p>
 <li>Sylak-Glassman, John, Kirov, Christo,  Yarowsky, David and Que, Roger. A Language-Independent Feature Schema for Inflectional Morphology. ACL. 2015.</li>
 </ul>
 
+<p>Please direct all correspondence regarding the shared task to <a href="mailto:ryan.cotterell@gmail.com">ryan.cotterell@gmail.com</a>.</p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/ryancotterell/sigmorphon2016">SIGMORPHON 2016 Shared Task: Paradigm Completion</a> is maintained by <a href="https://github.com/ryancotterell">ryancotterell</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/ryancotterell/sigmorphon2016">SIGMORPHON 2016 Shared Task: &lt;br&gt; Morphological Reinflection</a> is maintained by <a href="https://github.com/ryancotterell">ryancotterell</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
