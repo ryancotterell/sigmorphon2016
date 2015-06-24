@@ -68,10 +68,11 @@ and students who have previously considered the area. Additionally,
 all resources required for this shared task will be open source, that is
 available to everyone for free. </p>
 
-<p><font size="4" color="red">DECISION POINT: In the meeting we discussed an "entry level" task to ensure that anyone who wanted could easily participate.
-Does this task work for everyone? It was the simplest thing that popped into my mind, but we don't have to stick with it.</font></p>
 <h3>
 <a id="task-1--reranking-reinflection" class="anchor" href="#task-1--reranking-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Reranking Reinflection</h3>
+<p><font size="4" color="red">DECISION POINT: In the meeting we discussed an "entry level" task to ensure that anyone who wanted could easily participate.
+Does this task work for everyone? It was the simplest thing that popped into my mind, but we don't have to stick with it.</font></p>
+
 
 <p>The first task we consider is reranking of reinflection.
 The goal is to be able to learn function that reinflects
@@ -91,11 +92,13 @@ perform with simpler classifiers. </p>
 <li>Test</li>
 </ul>
 
+<h3>
+<a id="task-2--full-paradigm-generation" class="anchor" href="#task-2--full-paradigm-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Full Paradigm Generation</h3>
+
+
 <p><font size="4" color="red">DECISION POINT: All of these tasks focus on generating the whole paradigm. We will evaluate both on forms and whole tables. Do we also want to generate individual inflections without the whole paradigm?</font></p>
 
 <p><font size="4" color="red">DECISION POINT: We discussed different granularities for the reinflection task. Are these three distinctions enough? Too much? Do they capture all the nuances of the task we want?</font></p>
-<h3>
-<a id="task-2--full-paradigm-generation" class="anchor" href="#task-2--full-paradigm-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Full Paradigm Generation</h3>
 
 <p>The second task is full-blown paradigm completion. The goal
 here is to generate the <em>full paradigm</em> from a given 
@@ -190,11 +193,13 @@ the evaluation.</p></li>
 
 </ul>
 
-<p><font size="4" color="red">DECISION POINT: What other external resources should be allow?</font></p>
-<p><font size="4" color="red">DECISION POINT: I think we should evaluate two tracks: one without external resources and one with all those allowed. Do we want a third open track where anything goes?</font></p>
 
 <h2>
 <a id="external_resources" class="anchor" href="#external_resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>External Resources</h2>
+
+<p><font size="4" color="red">DECISION POINT: What other external resources should be allow?</font></p>
+<p><font size="4" color="red">DECISION POINT: I think we should evaluate two tracks: one without external resources and one with all those allowed. Do we want a third open track where anything goes?</font></p>
+
 <p>In order to ensure a level playing field, we insist that only
 external resources listed below be used in the competing
 systems. We may further ask for ablation studies regarding
@@ -207,13 +212,14 @@ dumps. We insist that no other monolingual resources be used and that all system
 
 
 
-<p><font size="4" color="red">DECISION POINT: I think the evaluation metric, accuracy, is set. Unless someone has a different suggestion? The main question here is how to sample the train, dev, test splits. Options include sampling the split with a uniform distribution over types or a distribution determined by token frequency. The later would put more irregulars in the train and dev splits and rarer forms in test split. Comments? </font></p>
-
 
 
 <h2>
 <a id="evaluation" class="anchor" href="#evaluation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
 <p><font size="4" color="red">DECISION POINT: We probably need to formulate a clear plan for conducting the evaluation. My current idea is to release the data 72 hours before the deadline and have each group self-report numbers.  </font></p>
+
+<p><font size="4" color="red">DECISION POINT: I think the evaluation metric, accuracy, is set. Unless someone has a different suggestion? The main question here is how to sample the train, dev, test splits. Options include sampling the split with a uniform distribution over types or a distribution determined by token frequency. The later would put more irregulars in the train and dev splits and rarer forms in test split. Comments? </font></p>
+
 
 
 <p>We will provide the test sets for evaluation 72 hours before the deadline along with the train and dev sets for
