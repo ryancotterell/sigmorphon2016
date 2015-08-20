@@ -28,21 +28,21 @@ stated, is to fill out a morphological paradigm (generally a nominal, adjectival
 given some incomplete representation of the whole paradigm.
 This area of computational morphology has received a flurry of attention recently
 in the NLP literature (Dreyer and Eisner (2009), Dreyer and Eisner (2011),
-Durett an DeNero (2013), Hulden et al. (2014), Nicolai, Cherry and Kondrak (2015), <em>inter alia</em>).</p>
+Durett and DeNero (2013), Hulden et al. (2014), Nicolai, Cherry and Kondrak (2015), <em>inter alia</em>).</p>
 
 <h2>
 <a id="morphological-reinflection--a-brief-introduction" class="anchor" href="#morphological-reinflection--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Morphological Reinflection – A Brief Introduction</h2>
 
-<p>In many of the world's languages words change their form to express different syntactic
+<p>In many of the world's languages, words change their form to express different syntactic
 and semantic relationships in a structured fashion. For instance, English generally overtly marks the plural with a final 
 "s", as in "model" → "models". Even for novel words, native speakers are perfectly capable 
-of generating the correct inflections (consider "wug" → "wugs"), making these processes
-highly productive. The act of modifying word forms to express these relationships is termed <em>inflection</em> (often <em>conjugation</em> when referring to verbs and <em>declension</em> when referring to nouns).
+of generating the correct inflections (consider "wug" → "wugs"), that is, the processes
+are productive. The act of modifying word forms to express these relationships is termed <em>inflection</em> (often <em>conjugation</em> when referring to verbs and <em>declension</em> when referring to nouns).
 In English, this task is relatively uninteresting, e.g., English
 substantives only distinguish singular and plural. 
 But many of the world's languages
 exhibit a high degree of inflection, making this a hard computational problem.
-In Polish, for example, a single verb can have over a 100 forms! This sort of linguistic
+In Polish, for example, a single verb can have over 100 forms! This sort of linguistic
 productivity creates data sparsity problems for most other NLP tasks. With this shared task, we hope to
 make progress in the community's ability to automate this aspect of computational morphology.</p>
 
@@ -55,17 +55,16 @@ to computational efforts in syntax and semantics, morphology
 receives far less attention. This is in part because
 researchers often work on English, a inflectionally impoverished
 language, but also because there are fewer standardized resources. 
-With this in mind, we designed our first shared task to be
-both useful, but also <em>easily accessible</em> to researchers
+With this in mind, we designed our first shared task not only to be useful, but also <em>easily accessible</em> to researchers
 and students who have previously considered the area. Additionally,
-all resources required for this shared task will be open source, that is
+all resources required for this shared task will be open source, that is,
 available to everyone for free. </p>
 
 <h3>
 <a id="task-1--reranking-reinflection" class="anchor" href="#task-1--reranking-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Reranking Reinflection</h3>
 
 <p>The first task we consider is reranking of reinflection.
-The goal is to learn function that reinflects
+The goal is to learn a function that reinflects
 a word form to another word form in the same paradigm. For instance,
 in English the system may be given "eating" and told to generate the past participle,
 which is "eaten". The goal of this task is to be relatively easy and
@@ -73,8 +72,8 @@ have a lower barrier to entry. We will provide
 each system with a set of word forms, their structured morphological
 tag, i.e, as described in Sylak-Glassman et al. (2015), and the structured
 morphological tag of the <em>target word form</em>. Additionally, each system
-is given a set of candidates to chose among allowing this task to
-perform with simpler classifiers. </p>
+is given a set of candidates to choose among allowing this task to
+be performed with simpler classifiers. </p>
 
 <ul>
 <li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/train">Train</a></li>
@@ -116,6 +115,15 @@ uniformly at random from the paradigm.</p>
 <li>Test</li>
 </ul>
 
+<h3>
+<a id="additional-details" class="anchor" href="#additional-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Details</h3>
+
+<ul>
+<li>We will always provide the system with the total number of slots and their correspond tags for the complete paradigms.</li>
+<li>For all languages we are working with orthographic strings, and not phonological strings (pronunciations). 
+*</li>
+</ul>
+
 <h2>
 <a id="the-languages" class="anchor" href="#the-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Languages</h2>
 
@@ -126,7 +134,7 @@ All of the data has been scraped from Wiktionary and undergone additional
 processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Speech Processing</a> at <a href="https://www.jhu.edu/">Johns Hopkins University</a>. The data are formatted according to the schema described in Sylak-Glassman et al. (2015).</p>
 
 <ul>
-<li><p><strong>Spanish</strong>: Spanish is a Romance language, branch of the larger Indo-European family, that originated in the Castile region of Spain. More than 400 million people speak Spanish as a native language, making it second only to Mandarin in terms of its number of native speakers worldwide. </p></li>
+<li><p><strong>Spanish</strong>: Spanish is a language of the Romance branch of the larger Indo-European family, that originated in the Castile region of Spain. More than 400 million people speak Spanish as a native language, making it second only to Mandarin in terms of its number of native speakers worldwide. </p></li>
 <li><p><strong>German:</strong> German is a West Germanic language that derives most of its vocabulary from the Germanic branch of the Indo-European language family. It is spoken by 90 million people in central Europe.</p></li>
 <li><p><strong>Finnish:</strong> Finnish is the language spoken by the majority of the population in Finland and by ethnic Finns outside Finland. It has 5.4 million speakers.</p></li>
 <li><p><strong>Russian:</strong> Russian is an East Slavic language and an official language in Russia, Belarus, Kazakhstan, and Kyrgyzstan. It is an unofficial but widely spoken language in Ukraine, Moldova, Latvia and Estonia. Russian belongs to the family of Indo-European languages and is one of the three living members of the East Slavic languages. It has 150 million native speakers and 260 speakers total.</p></li>
@@ -140,7 +148,7 @@ processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Spe
 <a id="evaluation" class="anchor" href="#evaluation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
 
 <p>We will evaluate using accuracy at both the form level and the entire paradigm level, following
-Durrett and DeNero (2013). We will distributed evaluation scripts ahead of time for use
+Durrett and DeNero (2013). We will distribute evaluation scripts ahead of time for use
 on the development data. In the case of polysemy, we will consider all answers correct. To give an example,
 the English verb "to hang" has two correct past tenses: "hung" and "hanged", whose usage depends on the object
 of the verb. If a system predicts either one of this forms correctly, then we will consider it correct. </p>
