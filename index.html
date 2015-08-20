@@ -98,10 +98,10 @@ have achieved developed high-performance systems. </p>
 </ul>
 
 <h3>
-<a id="task-3--slot-to-full-paradigm" class="anchor" href="#task-3--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Slot to Full Paradigm</h3>
+<a id="task-3--partial-to-full-paradigm" class="anchor" href="#task-3--partial-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Partial to Full Paradigm</h3>
 
 <p>The third task is generating the full paradigm
-from an arbitrary word form in the paradigm. This is very similar
+from a partial subset of the paradigm. This is very similar
 to the task introduced in Dreyer and Eisner (2009), 
 with the exception that we will never give a system
 more than one word form from which to generalize.
@@ -113,23 +113,6 @@ uniformly at random from the paradigm.</p>
 <ul>
 <li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
 <li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/dev">Dev</a></li>
-<li>Test</li>
-</ul>
-
-<h3>
-<a id="task-4--slot-to-full-paradigm" class="anchor" href="#task-4--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 4 – Slot to Full Paradigm++</h3>
-
-<p>The fourth task is a variational of the third task with two small twists: we will
-(i) not provide the structured tag with the word form in the training or 
-test data and (ii) the training data will have incomplete paradigms, i.e., only
-a subset of the slots will be given to train on. Both of these conditions
-represent noise that one should expect to find in the "wild", where data is often
-unlabeled and missing. In short, we would like to make computational morphological systems
-robust. </p>
-
-<ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting3/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting3/dev">Dev</a></li>
 <li>Test</li>
 </ul>
 
