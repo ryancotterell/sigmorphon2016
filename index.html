@@ -37,10 +37,12 @@ Durett and DeNero (2013), Hulden et al. (2014), Nicolai, Cherry and Kondrak (201
 and semantic relationships in a structured fashion. For instance, English generally overtly marks the plural with a final 
 "s", as in "model" → "models". Even for novel words, native speakers are perfectly capable 
 of generating the correct inflections (consider "wug" → "wugs"), that is, the processes
-are productive. The act of modifying word forms to express these relationships is termed <em>inflection</em> (often <em>conjugation</em> when referring to verbs and <em>declension</em> when referring to nouns).
+are productive. The act of modifying word forms to express these relationships is termed <em>inflection</em> (often <em>conjugation</em> when referring to verbs and <em>declension</em> when referring to nouns). "Reinflection"
+is then case where we take an already inflected form and put a different inflection. 
 In English, this task is relatively uninteresting, e.g., English
 substantives only distinguish singular and plural. 
-But many of the world's languages exhibit a high degree of inflection, making this a hard computational problem.
+But many of the world's languages exhibit a high degree of inflection, a hard computational problem 
+as well as a linguistically interesting one. 
 In Polish, for example, a single verb can have over 100 forms! This sort of linguistic
 productivity creates data sparsity problems for most other NLP tasks. With this shared task, we hope to
 make progress in the community's ability to automate this aspect of computational morphology.</p>
@@ -49,8 +51,8 @@ make progress in the community's ability to automate this aspect of computationa
 <a id="task-1--lemma-to-inflection" class="anchor" href="#task-1--lemma-to-inflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Lemma to Inflection</h2>
 
 <p>The first task is to generate a target inflection from the lemma. This is
-the task introduced in Durrett and DeNero (2013). This setting is rather well-researched, 
-e.g., Hulden et al. (2014), and Nicolai, Cherry and Kondrak (2015),
+the task performed in Durrett and DeNero (2013). This setting is rather well-researched, 
+e.g., Hulden et al. (2014) and Nicolai, Cherry and Kondrak (2015)
 have achieved developed high-performance systems. Following Durrett and DeNero (2013), 
 we will evaluate at both the level of the individual inflection as well as the paradigm level.</p>
 
@@ -71,11 +73,11 @@ we will evaluate at both the level of the individual inflection as well as the p
 </ul>
 
 <h2>
-<a id="task-2--partial-to-full-paradigm" class="anchor" href="#task-2--partial-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Partial to Full Paradigm</h2>
+<a id="task-2--reinflection" class="anchor" href="#task-2--reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Reinflection</h2>
 
-<p>The second task is generating reinflections from multiple inflected
+<p>The second task is generating reinflections from one or <em>many</em> already inflected
 forms. This is very similar to the task introduced in Dreyer and Eisner (2009). 
-We will give each system of a partial subset of the paradigm with its morphological tag and 
+We will give each system a set of inflected forms with their respective morphological tags and 
 evaluate against held-out forms in the paradigm. This sort of prediction
 is useful in languages with multiple stems – in Spanish, for instance, the
 verb to put "poner" has an irregular past stem, which is difficult to predict. 
@@ -102,7 +104,7 @@ Note we will not always provide the lemma.</p>
 <a id="additional-details" class="anchor" href="#additional-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Details</h2>
 
 <ul>
-<li>We will always provide the system with the total number of slots and their correspond tags for the complete paradigms.</li>
+<li>We will always provide the system with the total number of slots and their corresponding tags for the complete paradigms.</li>
 <li>For all languages we are working with orthographic strings, and not phonological strings (pronunciations). </li>
 </ul>
 
