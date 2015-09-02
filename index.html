@@ -23,12 +23,20 @@
 <a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h2>
 
 <p>The SIGMORPHON 2016 shared task is 
-morphological reinflection. The goal, roughly
-stated, is to fill out a morphological paradigm (generally a nominal, adjectival or verbal inflection table)
-given some incomplete representation of the whole paradigm.
-This area of computational morphology has received a flurry of attention recently
-in the NLP literature (Dreyer and Eisner (2009), Dreyer and Eisner (2011),
+morphological reinflection. The goal is to generate a specified
+inflected form of word, given a different form. For instance,
+we ask systems to generate the gerund "running" from the past tense "ran". In the general
+form, we may ask for <em>all</em> possible inflected forms. This task is known as paradigm completion and
+has received a flurry of attention in the NLP literature (Dreyer and Eisner (2009), Dreyer and Eisner (2011),
 Durett and DeNero (2013), Hulden et al. (2014), Nicolai, Cherry and Kondrak (2015), <em>inter alia</em>).</p>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<p>The systems will be given an inflected form and its morphological tag as well
+as the target morphological tag.
+<code>Source Form: "ran", Source Tag: "V Past Tense", Target Tag: "Gerund"</code>
+<code>Output: "running"</code></p>
 
 <h2>
 <a id="morphological-reinflection--a-brief-introduction" class="anchor" href="#morphological-reinflection--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Morphological Reinflection – A Brief Introduction</h2>
