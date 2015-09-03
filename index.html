@@ -48,7 +48,7 @@ productivity creates data sparsity problems for most other NLP tasks. With this 
 make progress in the community's ability to automate this aspect of computational morphology.</p>
 
 <h2>
-<a id="task-1--lemma-to-inflection" class="anchor" href="#task-1--lemma-to-inflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Lemma to Inflection</h2>
+<a id="task-1--inflection" class="anchor" href="#task-1--inflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Inflection</h2>
 
 <p>The first task is to generate a target inflection from the lemma. This is
 the task performed in Durrett and DeNero (2013). This setting is rather well-researched, 
@@ -75,23 +75,23 @@ we will evaluate at both the level of the individual inflection as well as the p
 <h2>
 <a id="task-2--reinflection" class="anchor" href="#task-2--reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Reinflection</h2>
 
-<p>The second task is generating reinflections from one or <em>many</em> already inflected
-forms. This is very similar to the task introduced in Dreyer and Eisner (2009). 
-We will give each system a set of inflected forms with their respective morphological tags and 
-evaluate against held-out forms in the paradigm. This sort of prediction
-is useful in languages with multiple stems – in Spanish, for instance, the
-verb to put "poner" has an irregular past stem, which is difficult to predict. 
-However, when given a form in this past tense, prediction becomes easier.
-Note we will not always provide the lemma.</p>
+<p>The second task is generating reinflections from a single <em>inflected</em>
+form for which we provide the morphological tag. 
+This is very similar to the task introduced in Dreyer and Eisner (2009), except
+that we will limit the input inflection to a single form. The primary
+difference between Task 2 and Task 1 in that the system will be responsible for
+mapping between <em>any</em> <em>two</em> slots in the paradigm. </p>
 
 <p><strong>Example</strong></p>
 
 <blockquote>
-<p><code>Source Forms: [poner | Infinitive], [puso | 3rd Person Preterite]</code></p>
+<p><code>Source Form: ran</code></p>
 
-<p><code>Target Tag: 2nd Person Preterite</code></p>
+<p><code>Source Tag: Past</code></p>
 
-<p><code>Output: pusiste</code></p>
+<p><code>Target Tag: Gerund</code></p>
+
+<p><code>Output: running</code></p>
 </blockquote>
 
 <ul>
@@ -101,11 +101,54 @@ Note we will not always provide the lemma.</p>
 </ul>
 
 <h2>
-<a id="additional-details" class="anchor" href="#additional-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Details</h2>
+<a id="task-3--unlabeled-reinflection" class="anchor" href="#task-3--unlabeled-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Unlabeled Reinflection</h2>
+
+<p>The third task is generating a reinflection <em>without</em> knowing
+the structured morphological tag. In this version of the task
+it may make sense to leverage monolingual corpora in the language to
+get a sense of the morphology through distributional information.</p>
+
+<p><strong>Example</strong></p>
+
+<blockquote>
+<p><code>Source Form: ran</code></p>
+
+<p><code>Target Tag: Gerund</code></p>
+
+<p><code>Output: running</code></p>
+</blockquote>
+
+<ul>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/dev">Dev</a></li>
+<li>Test</li>
+</ul>
+
+<h2>
+<a id="additional-details-and-possible-strategies" class="anchor" href="#additional-details-and-possible-strategies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Details and Possible Strategies</h2>
 
 <ul>
 <li>We will always provide the system with the total number of slots and their corresponding tags for the complete paradigms.</li>
 <li>For all languages we are working with orthographic strings, and not phonological strings (pronunciations). </li>
+<li>All of these are sequence-to-sequence mapping problems.  If you have a general method for learning such mappings, you can simply throw it at all of these tasks.</li>
+<li>You can solve the tasks in sequence.  For instance, reduce Task 2 to Task 1 by recovering an inflected form's lemma given its tag and then reduce Task 3 to Task 2 by recovering an inflected form's tag.</li>
+</ul>
+
+<h2>
+<a id="bonus-resources" class="anchor" href="#bonus-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus Resources</h2>
+
+<p>In order to ensure a level playing field, we insist that only
+external resources listed below be used in the competing
+systems. We may further ask for ablation studies regarding
+these resources. </p>
+
+<ul>
+<li>We will provide a large monolingual corpus for each language. We require
+that systems do not use any additional corpus resources other than the ones provided.</li>
+<li>Each task is permitted to make use of the training data for the other tasks in the same language.  For example:
+Task 1 could use Task 2's data for multi-task learning (i.e., learning the Past → Gerund mapping might help with learning the Lemma → Gerund mapping). Task 2 could use Task 3's data as additional incomplete training data. Task 3 could use Task 2's data as additional super-complete training data, to help construct and train a model with latent tags.</li>
+<li>All tasks could use Task 2's data to help bootstrap an unsupervised tagger for the monolingual corpus.
+Each task is permitted to make use of all test inputs for all tasks in the same language (transductive learning). </li>
 </ul>
 
 <h2>
@@ -115,7 +158,7 @@ Note we will not always provide the lemma.</p>
 Durrett and DeNero (2013). We will distribute evaluation scripts ahead of time for use
 on the development data. In the case of polysemy, we will consider all answers correct. To give an example,
 the English verb "to hang" has two correct past tenses: "hung" and "hanged", whose usage depends on the object
-of the verb. If a system predicts either one of this forms correctly, then we will consider it correct. </p>
+of the verb. If a system predicts either one of this forms correctly, then we will consider it correct. If you use a bonus resource, we request that you submit an additional version of your system that does not not use that resource, so that we can measure its benefit.</p>
 
 <h2>
 <a id="dates" class="anchor" href="#dates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dates</h2>
@@ -160,23 +203,6 @@ processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Spe
 <li><p><strong>Armenian:</strong> The Armenian language is an Indo-European language spoken by the Armenians. It is the official language of the Republic of Armenia and the self-proclaimed Nagorno-Karabakh Republic. It has historically been spoken throughout the Armenian Highlands and today is widely spoken in the Armenian diaspora. In total the language has 6 million speakers.</p></li>
 <li><p><strong>Surprise Language 1</strong> </p></li>
 <li><strong>Surprise Langauge 2</strong></li>
-</ul>
-
-<h2>
-<a id="external-resources" class="anchor" href="#external-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>External Resources</h2>
-
-<p>In order to ensure a level playing field, we insist that only
-external resources listed below be used in the competing
-systems. We may further ask for ablation studies regarding
-these resources. </p>
-
-<ul>
-<li>We will provide a large monolingual corpus for each language. We require
-that systems do not use any additional corpus resources other than the ones provided.</li>
-<li>To<br>
-</li>
-<li>be</li>
-<li>Determined</li>
 </ul>
 
 <h2>
