@@ -2,19 +2,16 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>SIGMORPHON 2016 Shared Task: Morphological Reinflection</title>
-
+    <title>SIGMORPHON 2016 Shared Task: Morphological Reinflection by ryancotterell</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
     <section class="page-header">
-
-      <h1 class="project-name">SIGMORPHON 2016 Shared Task: <br> Morphological Reinflection</h1>
-
+      <h1 class="project-name">SIGMORPHON 2016 Shared Task: Morphological Reinflection</h1>
       <h2 class="project-tagline"></h2>
       <a href="https://github.com/ryancotterell/sigmorphon2016" class="btn">View on GitHub</a>
       <a href="https://github.com/ryancotterell/sigmorphon2016/zipball/master" class="btn">Download .zip</a>
@@ -25,122 +22,77 @@
       <h2>
 <a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h2>
 
-
-<p>The SIGMORPHON 2016 shared task is morphological reinflection. The
-goal is to transduce a given form into a new word form.
-In its most general conception the task entails both analysis and generation&mdash;a success system
-must first determine the morphological properties of the given word form before generating
-the new word form. Ideally, we would like to
-generate a whole morphological paradigm (a nominal or verbal
-inflection table), i.e., all possible inflections derivable from a given stem. This area of computational
-morphology has received a flurry of attention recently
-in the NLP literature (Dreyer and Eisner (2009), Dreyer and Eisner (2011),
-Durrett an DeNero (2013), Hulden et al. (2014), Nicolai, et al. (2015), <i>inter alia</i>).</p>
-
-Sample input and output for the task:
-<ul>
-<li><b>Input:</b> An unlabeled inflected word such as "eaten" (possibly in context) + a structured morphological tag such as Pres-3S.</li>
-<li><b>Output:</b> The reinflected word "eats". So the program may wish to analyze the input before synthesizing the output.
-</ul>
-
+<p>The SIGMORPHON 2016 shared task is 
+morphological reinflection. The goal is to generate a specified
+inflected form of word given a different inflected form. For instance,
+we could ask systems to generate the gerund "running" from the past tense "ran". In the general
+case, we may ask for <em>all</em> possible inflected forms. This task is known as paradigm completion and
+has received a flurry of attention in the NLP literature (Dreyer and Eisner (2009), Dreyer and Eisner (2011),
+Durett and DeNero (2013), Hulden et al. (2014), Nicolai et al. (2015), <em>inter alia</em>).</p>
 
 <h2>
-<a id="paradigm-completion--a-brief-introduction" class="anchor" href="#paradigm-completion--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Morphological Inflection – A Brief Introduction</h2>
+<a id="morphological-inflection--a-brief-introduction" class="anchor" href="#morphological-inflection--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Morphological Inflection – A Brief Introduction</h2>
 
-<p>In many of the world's languages words change their form to express different syntactic
+<p>In many of the world's languages, words change their form to express different syntactic
 and semantic relationships in a structured fashion. For instance, English generally overtly marks the plural with a final 
 "s", as in "model" → "models". Even for novel words, native speakers are perfectly capable 
-of generating the correct inflections (consider "wug" → "wugs"), making these processes
-highly productive. The act of modifying word forms to express these relationships is termed <em>inflection</em> (often <em>conjugation</em> when referring to verbs and <em>declension</em> when referring to nouns).
+of generating the correct inflections (consider "wug" → "wugs"), that is, the processes
+are productive. The act of modifying word forms to express these relationships is termed <em>inflection</em> (often <em>conjugation</em> when referring to verbs and <em>declension</em> when referring to nouns). "Reinflection"
+is then case where we take an already inflected form and put a different inflection. 
 In English, this task is relatively uninteresting, e.g., English
 substantives only distinguish singular and plural. 
-But many of the world's languages
-exhibit a high degree of inflection making this a hard computational problem.
-In Polish, for example, a single verb can have over a 100 forms! This sort of linguistic
+But many of the world's languages exhibit a high degree of inflection, a hard computational problem 
+as well as a linguistically interesting one. 
+In Polish, for example, a single verb can have over 100 forms! This sort of linguistic
 productivity creates data sparsity problems for most other NLP tasks. With this shared task, we hope to
-make a progress in the community's ability to automate this aspect of computational morphology.</p>
-
+make progress in the community's ability to automate this aspect of computational morphology.</p>
 
 <h2>
-<a id="shared-task-philosophy" class="anchor" href="#shared-task-philosophy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shared Task Philosophy</h2>
+<a id="task-1--inflection" class="anchor" href="#task-1--inflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Inflection</h2>
 
-<p>A primary motivation behind this shared task is to spread
-interest in computational morphology. In comparison 
-to computational efforts in syntax and semantics, morphology
-receives far less attention. This is in part because
-researchers often work on English, an inflectionally impoverished
-language, but also because there are fewer standardized resources. 
-With this in mind, we designed our first shared task to be
-both useful, but also <em>easily accessible</em> to researchers
-and students who have previously considered the area. Additionally,
-all resources required for this shared task will be open source. </p>
+<p>The first task is to generate a target inflection from the lemma. This is
+the task performed in Durrett and DeNero (2013). This setting is rather well-researched, 
+e.g., Hulden et al. (2014) and Nicolai, Cherry and Kondrak (2015)
+have achieved developed high-performance systems. Following Durrett and DeNero (2013), 
+we will evaluate at both the level of the individual inflection as well as the paradigm level.</p>
 
-<h3>
-<a id="task-1--reranking-reinflection" class="anchor" href="#task-1--reranking-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Reranking Reinflection</h3>
-<p><font size="4" color="red">DECISION POINT: In the meeting we discussed an "entry level" task to ensure that anyone who wanted could easily participate.
-Does this task work for everyone? It was the simplest thing that popped into my mind, but we don't have to stick with it.</font></p>
+<p><strong>Example</strong></p>
 
+<blockquote>
+<p><code>Source Lemma: run</code></p>
 
-<p>The first task we consider is reranking of reinflection.
-The goal is to be able to learn a function that reinflects
-a word form to another word form in the same paradigm. For instance,
-in English the system may be given "eating" and told to generate the past participle,
-which is "eaten". The goal of this task is to be relatively easy and
-have a lower barrier to entry. We will provide
-each system with a set of word forms, their structured morphological
-tag, i.e, as described in Sylak-Glassman et al. (2015), and the structured
-morphological tag of the <em>target word form</em>. Additionally, each system
-is given a set of candidates to chose among allowing this task to
-perform with simpler classifiers. </p>
+<p><code>Target Tag: Gerund</code></p>
+
+<p><code>Output: running</code></p>
+</blockquote>
 
 <ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/dev">Dev</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/setting1/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/setting1/dev">Dev</a></li>
 <li>Test</li>
 </ul>
 
-<h3>
-<a id="task-2--full-paradigm-generation" class="anchor" href="#task-2--full-paradigm-generation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Full Paradigm Generation</h3>
+<h2>
+<a id="task-2--reinflection" class="anchor" href="#task-2--reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Reinflection</h2>
 
+<p>The second task is generating reinflections from a single <em>inflected</em>
+form for which we provide the morphological tag. 
+This is very similar to the task introduced in Dreyer and Eisner (2009), except
+that we will limit the input inflection to a single form. The primary
+difference between Task 2 and Task 1 in that the system will be responsible for
+mapping between <em>any</em> <em>two</em> slots in the paradigm. </p>
 
-<p><font size="4" color="red">DECISION POINT: All of these tasks focus on generating the whole paradigm. We will evaluate both on forms and whole tables. Do we also want to generate individual inflections without the whole paradigm?</font></p>
+<p><strong>Example</strong></p>
 
-<p><font size="4" color="red">DECISION POINT: We discussed different granularities for the reinflection task. Are these three distinctions enough? Too much? Do they capture all the nuances of the task we want?</font></p>
+<blockquote>
+<p><code>Source Form: ran</code></p>
 
-<p>The second task is full-blown paradigm completion. The goal
-here is to generate the <em>full paradigm</em> from a given 
-word form in the paradigm in various settings. We have
-ordered the settings in order of their difficulty and we expect
-systems to be able compete in all three tracks.</p>
+<p><code>Source Tag: Past</code></p>
 
-<h4>
-<a id="setting-1--lemma-to-full-paradigm" class="anchor" href="#setting-1--lemma-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 1 – Lemma to Full Paradigm</h4>
+<p><code>Target Tag: Gerund</code></p>
 
-<p>The first setting we consider is generating
-a full paradigm from a lemma. This is
-the task introduced in Durrett and DeNero (2013). 
-This setting is by far the easiest and a variety
-of researched, e.g., Hulden et al. (2014), and Nicolai, Cherry and Kondrak (2015),
-have achieved high-performance systems. </p>
-
-<ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting1/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting1/dev">Dev</a></li>
-<li>Test</li>
-</ul>
-
-<h4>
-<a id="setting-2--slot-to-full-paradigm" class="anchor" href="#setting-2--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 2 – Slot to Full Paradigm</h4>
-
-<p>The second task is generating the full paradigm
-from an arbitrary word form in the paradigm. This is very similar
-to the task introduced in Dreyer and Eisner (2009), 
-with the exception that we will never give a system
-more than one word form from which to generalize.
-To be more concrete, the training data will consist of
-pairs of word forms labeled with their structured tag
-and corresponding complete paradigm. The word form will be a slot sampled
-uniformly at random from the paradigm.</p>
+<p><code>Output: running</code></p>
+</blockquote>
 
 <ul>
 <li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
@@ -148,64 +100,42 @@ uniformly at random from the paradigm.</p>
 <li>Test</li>
 </ul>
 
-<h4>
-<a id="setting-3--slot-to-full-paradigm" class="anchor" href="#setting-3--slot-to-full-paradigm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting 3 – Slot to Full Paradigm++</h4>
+<h2>
+<a id="task-3--unlabeled-reinflection" class="anchor" href="#task-3--unlabeled-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Unlabeled Reinflection</h2>
 
-<p>The third track is a variation of Track 2 with two small twists: we will
-(i) not provide the structured tag with the word form in the training or 
-test data and (ii) the training data will have incomplete paradigms, i.e., only
-a subset of the slots will be given to train on. Both of these conditions
-represent noise that one should expect to find in the "wild", where data is often
-unlabeled and missing. In short, we would like to make computational morphological systems
-robust. </p>
+<p>The third task is generating a reinflection <em>without</em> knowing
+the structured morphological tag. In this version of the task
+it may make sense to leverage monolingual corpora in the language to
+get a sense of the morphology through distributional information.</p>
+
+<p><strong>Example</strong></p>
+
+<blockquote>
+<p><code>Source Form: ran</code></p>
+
+<p><code>Target Tag: Gerund</code></p>
+
+<p><code>Output: running</code></p>
+</blockquote>
 
 <ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting3/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting3/dev">Dev</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/dev">Dev</a></li>
 <li>Test</li>
 </ul>
 
 <h2>
-<a id="the-languages" class="anchor" href="#the-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Languages</h2>
-
-
-<p><font size="4" color="red">DECISION POINT: Is everyone ok with these languages? I tried to balance languages that have been studied
-with new ones, but at the same time I tried not to overwhelm the participants with too many. Johns Hopkins will provide all data 
-(from Wiktionary) and it will be open source.</font></p>
-
-<p><font size="4" color="red">DECISION POINT: I think we should stick to orthographic forms (not phonological, i.e., IPA) for this first
-task. Does everyone agree there?.</font></p>
-
-
-<p>In our selection of languages, we have sought a representative
-sample of the world's languages (albeit biased to those with rich inflection).
-We chose the following 8 languages: Spanish, German, Finnish, Russian, Turkish, Greenlandic, Navajo and Armenian.
-All of the data has been scraped from Wiktionary and undergone additional
-processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Speech Processing</a> at <a href="https://www.jhu.edu/">Johns Hopkins University</a>. The data are formatted according to the schema described in Sylak-Glassman et al. (2015).</p>
+<a id="additional-details-and-possible-strategies" class="anchor" href="#additional-details-and-possible-strategies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Details and Possible Strategies</h2>
 
 <ul>
-<li><p><strong>Spanish</strong>: Spanish is a Romance language, branch of the larger Indo-European family, that originated in the Castile region of Spain. More than 400 million people speak Spanish as a native language, making it second only to Mandarin in terms of its number of native speakers worldwide. </p></li>
-<li><p><strong>German:</strong> German is a West Germanic language that derives most of its vocabulary from the Germanic branch of the Indo-European language family. It is spoken by 90 million people in central Europe.</p></li>
-<li><p><strong>Finnish:</strong> Finnish is the language spoken by the majority of the population in Finland and by ethnic Finns outside Finland. It has 5.4 million speakers.</p></li>
-<li><p><strong>Russian:</strong> Russian is an East Slavic language and an official language in Russia, Belarus, Kazakhstan, and Kyrgyzstan. It is an unofficial but widely spoken language in Ukraine, Moldova, Latvia and Estonia. Russian belongs to the family of Indo-European languages and is one of the three living members of the East Slavic languages. It has 150 million native speakers and 260 speakers total.</p></li>
-<li><p><strong>Turkish:</strong> Turkish is the most widely spoken of the Turkic languages, with around 63 million native speakers. Speakers are located predominantly in Turkey, with smaller groups in Germany, Bulgaria, Macedonia, Northern Cyprus, Greece, the Caucasus, and other parts of Europe and Central Asia.</p></li>
-<li><p><strong>Greenlandic:</strong> Greenlandic is an Eskimo–Aleut language spoken by about 57,000 Greenlandic Inuit people in Greenland. It is closely related to the Inuit languages in Canada, such as Inuktitut. The main dialect, Kalaallisut or West Greenlandic, has been the official language of the Greenlandic autonomous territory since June 2009.</p></li>
-<li><p><strong>Navajo:</strong> Navajo is a language of the Athabaskan branch of the Na-Dené family, by which it is related to languages spoken across the western areas of North America. Navajo is spoken primarily in the Southwestern United States, especially in the Navajo Nation political area. It is one of the most widely spoken Native American languages with almost 170,000 Americans speaking Navajo at home as of 2011.</p></li>
-<li><p><strong>Armenian:</strong> The Armenian language is an Indo-European language spoken by the Armenians. It is the official language of the Republic of Armenia and the self-proclaimed Nagorno-Karabakh Republic. It has historically been spoken throughout the Armenian Highlands and today is widely spoken in the Armenian diaspora. In total the language has 6 million speakers.</p></li>
-<li><p><strong>Surprise Language 1:</strong> 
-The first surprise language! All data (train, dev and test) will be distributed 72 hours before
-the evaluation.</p></li>
-<li><p><strong>Surprise Language 2:</strong> The second surprise language! All data (train, dev and test) will be distributed 72 hours before
-the evaluation.</p></li>
-
+<li>We will always provide the system with the total number of slots and their corresponding tags for the complete paradigms.</li>
+<li>For all languages we are working with orthographic strings, and not phonological strings (pronunciations). </li>
+<li>All of these are sequence-to-sequence mapping problems.  If you have a general method for learning such mappings, you can simply throw it at all of these tasks.</li>
+<li>You can solve the tasks in sequence.  For instance, reduce Task 2 to Task 1 by recovering an inflected form's lemma given its tag and then reduce Task 3 to Task 2 by recovering an inflected form's tag.</li>
 </ul>
 
-
 <h2>
-<a id="external_resources" class="anchor" href="#external_resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>External Resources</h2>
-
-<p><font size="4" color="red">DECISION POINT: What other external resources should be allowed?</font></p>
-<p><font size="4" color="red">DECISION POINT: I think we should evaluate two tracks: one without external resources and one with all those allowed. Do we want a third open track where anything goes?</font></p>
+<a id="bonus-resources" class="anchor" href="#bonus-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus Resources</h2>
 
 <p>In order to ensure a level playing field, we insist that only
 external resources listed below be used in the competing
@@ -213,25 +143,53 @@ systems. We may further ask for ablation studies regarding
 these resources. </p>
 
 <ul>
-<li><strong>Monolingual Corpora:</strong> We will provide monolingual corpora for all languages. These will be Wikipedia backup
-dumps. We insist that no other monolingual resources be used and that all systems report numbers both <em>with</em> and <em>without</em> the resources.</li>
+<li>We will provide a large monolingual corpus for each language. We require
+that systems do not use any additional corpus resources other than the ones provided.</li>
+<li>Each task is permitted to make use of the training data for the other tasks in the same language.  For example:
+Task 1 could use Task 2's data for multi-task learning (i.e., learning the Past → Gerund mapping might help with learning the Lemma → Gerund mapping). Task 2 could use Task 3's data as additional incomplete training data. Task 3 could use Task 2's data as additional super-complete training data, to help construct and train a model with latent tags.</li>
+<li>All tasks could use Task 2's data to help bootstrap an unsupervised tagger for the monolingual corpus.
+Each task is permitted to make use of all test inputs for all tasks in the same language (transductive learning). </li>
 </ul>
-
-
-
-
 
 <h2>
 <a id="evaluation" class="anchor" href="#evaluation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
-<p><font size="4" color="red">DECISION POINT: We probably need to formulate a clear plan for conducting the evaluation. My current idea is to release the data 72 hours before the deadline and have each group self-report numbers.  </font></p>
 
-<p><font size="4" color="red">DECISION POINT: I think the evaluation metric, accuracy, is set. Unless someone has a different suggestion? The main question here is how to sample the train, dev, test splits. Options include sampling the split with a uniform distribution over types or a distribution determined by token frequency. The later would put more irregulars in the train and dev splits and rarer forms in test split. Comments? </font></p>
+<p>We will evaluate using accuracy at both the form level and exact match at the entire paradigm level, following
+Durrett and DeNero (2013). We will distribute evaluation scripts ahead of time for use
+on the development data. In the case of polysemy, we will consider all answers correct. To give an example,
+the English verb "to hang" has two correct past tenses: "hung" and "hanged", whose usage depends on the object
+of the verb. If a system predicts either one of this forms correctly, then we will consider it correct. If you use a bonus resource, we request that you submit an additional version of your system that does not not use that resource, so that we can measure its benefit.</p>
 
+<h2>
+<a id="dates" class="anchor" href="#dates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dates</h2>
 
+<ul>
+<li>Training data will be released October 1, 2015</li>
+<li>Evaluation will take place TBD Spring, 2016</li>
+</ul>
 
-<p>We will provide the test sets for evaluation 72 hours before the deadline along with the train and dev sets for
-the surprise languages. Systems will be evaluated on both per form accuracy and per table accuracy. </p>
+<h2>
+<a id="the-languages" class="anchor" href="#the-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Languages</h2>
 
+<p>In our selection of languages, we have sought a representative
+sample of the world's languages (albeit biased to those with rich inflection).
+We chose the following 10 languages: Spanish, German, Finnish, Russian, Turkish, Greenlandic, Navajo and Armenian
+and an additional two surprise languages whose identity and training data will only be revealed come evaluation time.
+All of the data has been scraped from Wiktionary and undergone additional
+processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Speech Processing</a> at <a href="https://www.jhu.edu/">Johns Hopkins University</a>. The data are formatted according to the schema described in Sylak-Glassman et al. (2015).</p>
+
+<ul>
+<li><p><strong>Spanish</strong>: Spanish is a language of the Romance branch of the larger Indo-European family, that originated in the Castile region of Spain. More than 400 million people speak Spanish as a native language, making it second only to Mandarin in terms of its number of native speakers worldwide. </p></li>
+<li><p><strong>German:</strong> German is a West Germanic language that derives most of its vocabulary from the Germanic branch of the Indo-European language family. It is spoken by 90 million people in central Europe.</p></li>
+<li><p><strong>Finnish:</strong> Finnish is the language spoken by the majority of the population in Finland and by ethnic Finns outside Finland. It has 5.4 million speakers.</p></li>
+<li><p><strong>Russian:</strong> Russian is an East Slavic language and an official language in Russia, Belarus, Kazakhstan, and Kyrgyzstan. It is an unofficial but widely spoken language in Ukraine, Moldova, Latvia and Estonia. Russian belongs to the family of Indo-European languages and is one of the three living members of the East Slavic languages. It has 150 million native speakers and 260 speakers total.</p></li>
+<li><p><strong>Turkish:</strong> Turkish is the most widely spoken of the Turkic languages, with around 63 million native speakers. Speakers are located predominantly in Turkey, with smaller groups in Germany, Bulgaria, Macedonia, Northern Cyprus, Greece, the Caucasus, and other parts of Europe and Central Asia.</p></li>
+<li><p><strong>Greenlandic:</strong> Greenlandic is an Eskimo–Aleut language spoken by about 57,000 Greenlandic Inuit people in Greenland. It is closely related to the Inuit languages in Canada, such as Inuktitut. The main dialect, Kalaallisut or West Greenlandic, has been the official language of the Greenlandic autonomous territory since June 2009.</p></li>
+<li><p><strong>Navajo:</strong> Navajo is a language of the Athabaskan branch of the Na-Dené family, by which it is related to languages spoken across the western areas of North America. Navajo is spoken primarily in the Southwestern United States, especially in the Navajo Nation political area. It is one of the most widely spoken Native American languages with almost 170,000 Americans speaking Navajo at home as of 2011.</p></li>
+<li><p><strong>Armenian:</strong> The Armenian language is an Indo-European language spoken by the Armenians. It is the official language of the Republic of Armenia and the self-proclaimed Nagorno-Karabakh Republic. It has historically been spoken throughout the Armenian Highlands and today is widely spoken in the Armenian diaspora. In total the language has 6 million speakers.</p></li>
+<li><p><strong>Surprise Language 1</strong> </p></li>
+<li><strong>Surprise Langauge 2</strong></li>
+</ul>
 
 <h2>
 <a id="bibliography" class="anchor" href="#bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bibliography</h2>
@@ -240,9 +198,9 @@ the surprise languages. Systems will be evaluated on both per form accuracy and 
 <li>Greg Durrett, John DeNero. Supervised Learning of Complete Morphological Paradigms. NAACL. 2013.</li>
 <li>Markus Dreyer, Jason Eisner. Discovering Morphological Paradigms from Plain Text Using a Dirichlet Process Mixture Model. EMNLP. 2011.</li>
 <li>Markus Dreyer, Jason Eisner. Graphical Models over Multiple Strings. EMNLP. 2009.</li>
+<li>Ramy Eskander, Nizar Habash, Owen Rambow. Automatic Extraction of Morphological Lexicons from Morphologically Annotated Corpora. EMNLP 2013. </li>
 <li>Nicolai, Garrett  and  Cherry, Colin  and  Kondrak, Grzegorz. Inflection Generation as Discriminative String Transduction. NAACL 2015. </li>
 <li>Mans Hulden, Markus Forsberg, Malin Ahlberg. Semi-supervised learning of morphological paradigms and lexicons. EACL. 2014.</li>
-<li>Mans Hulden. Generalizing inflection tables into paradigms with finite state operations. SIGMORPHON. 2014. </li>
 <li>Ahlberg, Malin  and  Forsberg, Markus  and  Hulden, Mans. Paradigm classification in supervised learning of morphology. NAACL. 2015. </li>
 <li>Sylak-Glassman, John, Kirov, Christo,  Yarowsky, David and Que, Roger. A Language-Independent Feature Schema for Inflectional Morphology. ACL. 2015.</li>
 </ul>
@@ -250,7 +208,7 @@ the surprise languages. Systems will be evaluated on both per form accuracy and 
 <p>Please direct all correspondence regarding the shared task to <a href="mailto:ryan.cotterell@gmail.com">ryan.cotterell@gmail.com</a>.</p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/ryancotterell/sigmorphon2016">SIGMORPHON 2016 Shared Task:  Morphological Reinflection</a> is maintained by <a href="https://github.com/ryancotterell">ryancotterell</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/ryancotterell/sigmorphon2016">SIGMORPHON 2016 Shared Task: Morphological Reinflection</a> is maintained by <a href="https://github.com/ryancotterell">ryancotterell</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
@@ -260,4 +218,3 @@ the surprise languages. Systems will be evaluated on both per form accuracy and 
   
   </body>
 </html>
-
