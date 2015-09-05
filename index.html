@@ -20,79 +20,89 @@
 
     <section class="main-content">
       <h2>
-<a id="welcome" class="anchor" href="#welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome</h2>
 
-<p>The SIGMORPHON 2016 shared task is 
-morphological reinflection. The goal is to generate a specified
-inflected form of word given a different inflected form. For instance,
-we could ask systems to generate the gerund "running" from the past tense "ran". In the general
-case, we may ask for <em>all</em> possible inflected forms. This task is known as paradigm completion and
-has received a flurry of attention in the NLP literature (Dreyer and Eisner (2009), Dreyer and Eisner (2011),
-Durett and DeNero (2013), Hulden et al. (2014), Nicolai et al. (2015), <em>inter alia</em>).</p>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2> 
 
-<h2>
-<a id="morphological-inflection--a-brief-introduction" class="anchor" href="#morphological-inflection--a-brief-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Morphological Inflection – A Brief Introduction</h2>
+<p>In 2015-2016, <A HREF="http://www.sigmorphon.org/">SIGMORPHON</A>
+  is hosting a shared task on <b>morphological reinflection</b>.  An
+  example of English reinflection is the conversion of <code>ran</code> to its
+  present participle, <code>running</code>.</p>
+</p>
 
-<p>In many of the world's languages, words change their form to express different syntactic
-and semantic relationships in a structured fashion. For instance, English generally overtly marks the plural with a final 
-"s", as in "model" → "models". Even for novel words, native speakers are perfectly capable 
-of generating the correct inflections (consider "wug" → "wugs"), that is, the processes
-are productive. The act of modifying word forms to express these relationships is termed <em>inflection</em> (often <em>conjugation</em> when referring to verbs and <em>declension</em> when referring to nouns). "Reinflection"
-is then case where we take an already inflected form and put a different inflection. 
-In English, this task is relatively uninteresting, e.g., English
-substantives only distinguish singular and plural. 
-But many of the world's languages exhibit a high degree of inflection, a hard computational problem 
-as well as a linguistically interesting one. 
-In Polish, for example, a single verb can have over 100 forms! This sort of linguistic
-productivity creates data sparsity problems for most other NLP tasks. With this shared task, we hope to
-make progress in the community's ability to automate this aspect of computational morphology.</p>
+<p>To participate in the shared task, you will build a system that can
+learn to solve reinflection problems.  All submitted systems will be 
+compared on a held-out test set.</p>
 
-<h2>
-<a id="task-1--inflection" class="anchor" href="#task-1--inflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Inflection</h2>
+<p>You will be invited to describe your system in a short paper for
+the SIGMORPHON 2016 workshop.  The task organizers will write an
+overview paper that describes the task and summarizes the different
+approaches taken and their results.</p>
 
-<p>The first task is to generate a target inflection from the lemma. This is
-the task performed in Durrett and DeNero (2013). This setting is rather well-researched, 
-e.g., Hulden et al. (2014) and Nicolai, Cherry and Kondrak (2015)
-have achieved developed high-performance systems. Following Durrett and DeNero (2013), 
-we will evaluate at both the level of the individual inflection as well as the paradigm level.</p>
-
-<p><strong>Example</strong></p>
-
-<blockquote>
-<p><code>Source Lemma: run</code></p>
-
-<p><code>Target Tag: Gerund</code></p>
-
-<p><code>Output: running</code></p>
-</blockquote>
+<h3>
+<a id="dates" class="anchor" href="#dates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dates</h3>
 
 <ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/setting1/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/setting1/dev">Dev</a></li>
+<li>October 1, 2015 - training data released </li>
+<li>Fall 2016 (<font color=red>!!!TBD</font>) - evaluation script released </li>
+<li>Spring 2016 (<font color=red>!!!TBD</font>) - training data for surprise languages released</li>
+<li>Spring 2016 (<font color=red>!!!TBD</font>) - test input data released; participants run systems</li>
+</ul>
+
+<font color=red>!!! Do we also want to release a very simple baseline system that illustrates the calling conventions (command-line flags etc.)?</font>
+
+<h2>
+<a id="inflectional-morphology" class="anchor" href="#inflectional-morphology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inflectional Morphology</h2>
+
+<p>A word's form reflects syntactic and semantic features that are expressed by the word.  For example, each English count noun has both singular and plural forms (<code>robot</code>/<code>robots</code>, <code>process</code>/<code>processes</code>), known as the <b>inflected forms</b> of the noun.  A Polish verb may have <A HREF="http://www.tastingpoland.com/language/verb/dodac_add_verb.html">nearly 100 inflected forms</A>.</p>
+
+<p>NLP systems must be able to analyze and generate all of these inflected forms.  Fortunately, inflected forms tend to be systematically related to one another.  This is why English speakers can usually predict the singular form from the plural and vice-versa, even for words they have never seen before.</p>
+
+<h2>
+<a id="the-tasks" class="anchor" href="#the-tasks" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Tasks</h2>
+
+<p>There are actually three similar tasks.  Your system may compete on any or all of the three tasks.  Training examples and development examples will be provided for each task. 
+  For each language, the possible inflections are named by a given finite set of morphological <b>tags</b>.
+</p>
+
+<h3>
+<a id="task-1--inflection" class="anchor" href="#task-1--inflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Inflection</h3>
+
+Given a <b>lemma</b> (the dictionary form of a word), generate a target inflected form.
+
+<p><strong>English example</strong></p>
+
+<blockquote>
+<p>Source Form: <code>run</code><br>
+Source Tag: Lemma <font color=red>!!!should we indicate Noun_Lemma vs. Verb_Lemma?</font><br>
+Target Tag: <code>Present participle</code></p>
+
+<p>Output: <code>running</code></p>
+</blockquote>
+
+<p>Recent high-performance systems include Hulden et al. (2014) and Nicolai, Cherry and Kondrak (2015).</p>
+
+<ul>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/setting1/train">Train</a> <font color=red>!!!BROKEN LINK</font></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/setting1/dev">Dev</a> <font color=red>!!!BROKEN LINK</font></li>
 <li>Test</li>
 </ul>
 
-<h2>
-<a id="task-2--reinflection" class="anchor" href="#task-2--reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Reinflection</h2>
+<h3>
+<a id="task-2--reinflection" class="anchor" href="#task-2--reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Reinflection</h3>
 
-<p>The second task is generating reinflections from a single <em>inflected</em>
-form for which we provide the morphological tag. 
-This is very similar to the task introduced in Dreyer and Eisner (2009), except
-that we will limit the input inflection to a single form. The primary
-difference between Task 2 and Task 1 in that the system will be responsible for
-mapping between <em>any</em> <em>two</em> slots in the paradigm. </p>
+<p>Given an inflected form and its current tag, generate a target inflected form.
 
-<p><strong>Example</strong></p>
+<p><strong>English example</strong></p>
 
 <blockquote>
-<p><code>Source Form: ran</code></p>
+<p>Source Form: <code>ran</code><br>
+Source Tag: <code>Past</code><br>
+Target Tag: <code>Present participle</code></p>
 
-<p><code>Source Tag: Past</code></p>
-
-<p><code>Target Tag: Gerund</code></p>
-
-<p><code>Output: running</code></p>
+<p>Output: <code>running</code></p>
 </blockquote>
+
+<!-- Note that Task 1 is a special case of Task 2 where the source tag is guaranteed to be <code>Lemma</code>.  One possible strategy for Task 2 is to reconstruct the lemma as an intermediate step (<code>ran</code> ↦ <code>run</code> ↦ <code>running</code>), which would involve solving Task 1 in reverse as well as Task 1. -->
 
 <ul>
 <li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
@@ -100,23 +110,23 @@ mapping between <em>any</em> <em>two</em> slots in the paradigm. </p>
 <li>Test</li>
 </ul>
 
-<h2>
-<a id="task-3--unlabeled-reinflection" class="anchor" href="#task-3--unlabeled-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Unlabeled Reinflection</h2>
+<h3>
+<a id="task-3--unlabeled-reinflection" class="anchor" href="#task-3--unlabeled-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Unlabeled Reinflection</h3>
 
-<p>The third task is generating a reinflection <em>without</em> knowing
-the structured morphological tag. In this version of the task
-it may make sense to leverage monolingual corpora in the language to
-get a sense of the morphology through distributional information.</p>
+<p>Given an inflected form <i>without</i> its current inflection, generate a target inflected form.</p>
 
-<p><strong>Example</strong></p>
+<p><strong>English example</strong></p>
 
 <blockquote>
-<p><code>Source Form: ran</code></p>
+<p>Source Form: <code>ran</code><br>
+Source Tag: not given<br>
+Target Tag: <code>Present participle</code></p>
 
-<p><code>Target Tag: Gerund</code></p>
-
-<p><code>Output: running</code></p>
+<p>Output: <code>running</code></p>
 </blockquote>
+
+<!-- <p>One possible strategy for task is to predict the source tag and then proceed as in Task 2.</p> -->
+
 
 <ul>
 <li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
@@ -124,59 +134,92 @@ get a sense of the morphology through distributional information.</p>
 <li>Test</li>
 </ul>
 
-<h2>
-<a id="additional-details-and-possible-strategies" class="anchor" href="#additional-details-and-possible-strategies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Details and Possible Strategies</h2>
 
-<ul>
-<li>We will always provide the system with the total number of slots and their corresponding tags for the complete paradigms.</li>
-<li>For all languages we are working with orthographic strings, and not phonological strings (pronunciations). </li>
-<li>All of these are sequence-to-sequence mapping problems.  If you have a general method for learning such mappings, you can simply throw it at all of these tasks.</li>
-<li>You can solve the tasks in sequence.  For instance, reduce Task 2 to Task 1 by recovering an inflected form's lemma given its tag and then reduce Task 3 to Task 2 by recovering an inflected form's tag.</li>
-</ul>
+<h3>
+<a id="possible-strategies" class="anchor" href="#additional-details-and-possible-strategies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Possible Strategies</h3>
+
+<p>All of these are sequence-to-sequence mapping problems.  If you have a general supervised method for learning such mappings, you can simply throw it at all of these tasks.</p>
+
+<p>Alternatively, you can solve the tasks in sequence.  For instance, reduce Task 2 to Task 1 by recovering an inflected form's lemma given its tag, and then reduce Task 3 to Task 2 by recovering an inflected form's tag.</p>
+
+<p>An <b>inflectional paradigm</b> is a table that lists all inflected forms for some lemma.  Rather than treating the training examples as independent, you could assemble them into partial paradigms based on shared input or output forms.  You could then jointly analyze the partial paradigms to better discover latent structure in the observed forms and to better extrapolate to unobserved forms (Dreyer and Eisner 2009, 2011; Durrett and DeNero 2013; Hulden et al. 2014; Nicolai et al. 2015).
 
 <h2>
 <a id="bonus-resources" class="anchor" href="#bonus-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus Resources</h2>
 
-<p>In order to ensure a level playing field, we insist that only
-external resources listed below be used in the competing
-systems. We may further ask for ablation studies regarding
-these resources. </p>
+<p>When evaluated on a given (task, language) pair, your system is permitted to consult the provided training data for that pair.  Your system is also permitted to consult the following additional resources, but no other resources.</p>
 
 <ul>
-<li>We will provide a large monolingual corpus for each language. We require
-that systems do not use any additional corpus resources other than the ones provided.</li>
-<li>Each task is permitted to make use of the training data for the other tasks in the same language.  For example:
-Task 1 could use Task 2's data for multi-task learning (i.e., learning the Past → Gerund mapping might help with learning the Lemma → Gerund mapping). Task 2 could use Task 3's data as additional incomplete training data. Task 3 could use Task 2's data as additional super-complete training data, to help construct and train a model with latent tags.</li>
-<li>All tasks could use Task 2's data to help bootstrap an unsupervised tagger for the monolingual corpus.
-Each task is permitted to make use of all test inputs for all tasks in the same language (transductive learning). </li>
+<li><p>Resources that we will provide for this language:
+  <ul>
+    <li>A large untagged monolingual text corpus.
+    <li>The list of possible tags.
+    <li>A description of each tag as a set of <code><i>attribute</i>=<i>value</i></code> pairs, e.g., <code>[Person=3,Number=plural,Tense=Past]</code>.  These features are useful for generalization in languages with large tagsets.
+  </ul></p>
+<li><p>The training data for the <i>other</i> tasks in the same language:
+  <ul>
+    <li>Task 1 could use Task 2's data for multi-task learning (e.g., learning the Past → Gerund mapping might help with learning the Lemma → Gerund mapping).</li> 
+    <li>Task 2 could use Task 3's data as additional incomplete training data.</li>
+    <li>Task 3 could use Task 2's data as additional super-complete training data, to help construct and train a model with latent tags.</li>
+    <li>All tasks could use Task 2's data to help bootstrap an unsupervised tagger for the monolingual corpus.</li>
+  </ul></p>
+<li><p>The test <i>inputs</i> for all tasks in the same language (transductive learning).  The Task 2 example shown above reveals that <code>ran</code> can be a <code>Past</code> form.  This could help Task 3 predict the <code>Past</code> form of <code>runs</code>.</p> </li>
 </ul>
+
+<p>It is not required to use these bonus resources.  They are permitted in order to make the task more realistic, to allow more freedom to develop interesting approaches, and because it would be difficult to exclude their use.</p>
 
 <h2>
 <a id="evaluation" class="anchor" href="#evaluation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
 
-<p>We will evaluate using accuracy at both the form level and exact match at the entire paradigm level, following
-Durrett and DeNero (2013). We will distribute evaluation scripts ahead of time for use
-on the development data. In the case of polysemy, we will consider all answers correct. To give an example,
-the English verb "to hang" has two correct past tenses: "hung" and "hanged", whose usage depends on the object
-of the verb. If a system predicts either one of this forms correctly, then we will consider it correct. If you use a bonus resource, we request that you submit an additional version of your system that does not not use that resource, so that we can measure its benefit.</p>
+<p>Your system should predict a single string for each test example.  
+Optionally, you may also produce a ranked list of up to 20 predictions for each test 
+example.</p>
 
-<h2>
-<a id="dates" class="anchor" href="#dates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dates</h2>
-
+<p>We will distribute an evaluation script for your use on the development data.  The script will report:
 <ul>
-<li>Training data will be released October 1, 2015</li>
-<li>Evaluation will take place TBD Spring, 2016</li>
+  <li>Accuracy = fraction of correctly predicted forms
+  <li>Average <a href="https://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein distance</A> between the prediction and the truth
+  <li>Mean reciprocal rank of the truth (if your system produces ranked lists)
 </ul>
+The script will also provide some analysis of errors, e.g., according to whether the correct output appears in the monolingual corpus.
+</p>
+
+<p>You are encouraged to do ablation studies to measure the advantage
+that you gained from using bonus resources or from particular
+innovations.  You should perform these studies on the development data
+and report the findings in your paper.</p>
+
+<p>We will use the same script to evaluate your system's output on the
+test data.  If multiple answers are correct, we will use the answer
+that gives you the higher score.  For example, in Task 1, the two
+senses of English lemma <code>hang</code> have
+different <code>Past</code> forms, <code>hung</code>
+and <code>hanged</code>.  In Task 3, the English verb <code>lay</code>
+could be a <code>Present</code> or <code>Past</code> form,
+with <code>Past participle</code> forms of <code>laid</code>
+and <code>lain</code> respectively.</p>
+
+<p>We will evaluate on each language separately.  An aggregate evaluation
+will weight all languages equally, including the 2 surprise
+languages.</p>
+
+<p>In the overview paper, we will also compare the systems to one
+another.  We will evaluate
+<ul>
+  <li>which systems are significantly different in performance
+  <li>which examples were hard and which types of systems succeeded on them
+  <li>which systems would provide complementary benefit in an ensemble system
+</ul>
+<p>
 
 <h2>
 <a id="the-languages" class="anchor" href="#the-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Languages</h2>
 
-<p>In our selection of languages, we have sought a representative
-sample of the world's languages (albeit biased to those with rich inflection).
-We chose the following 10 languages: Spanish, German, Finnish, Russian, Turkish, Greenlandic, Navajo and Armenian
-and an additional two surprise languages whose identity and training data will only be revealed come evaluation time.
-All of the data has been scraped from Wiktionary and undergone additional
+<p>We have chosen a diverse set of 10 languages, mostly languages with rich inflection.
+All of the datasets have been scraped from Wiktionary and undergone additional
 processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Speech Processing</a> at <a href="https://www.jhu.edu/">Johns Hopkins University</a>. The data are formatted according to the schema described in Sylak-Glassman et al. (2015).</p>
+
+<p>For all languages, the data consist of orthographic strings (written spellings), not phonological strings (pronunciations).</p>
 
 <ul>
 <li><p><strong>Spanish</strong>: Spanish is a language of the Romance branch of the larger Indo-European family, that originated in the Castile region of Spain. More than 400 million people speak Spanish as a native language, making it second only to Mandarin in terms of its number of native speakers worldwide. </p></li>
@@ -187,12 +230,32 @@ processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Spe
 <li><p><strong>Greenlandic:</strong> Greenlandic is an Eskimo–Aleut language spoken by about 57,000 Greenlandic Inuit people in Greenland. It is closely related to the Inuit languages in Canada, such as Inuktitut. The main dialect, Kalaallisut or West Greenlandic, has been the official language of the Greenlandic autonomous territory since June 2009.</p></li>
 <li><p><strong>Navajo:</strong> Navajo is a language of the Athabaskan branch of the Na-Dené family, by which it is related to languages spoken across the western areas of North America. Navajo is spoken primarily in the Southwestern United States, especially in the Navajo Nation political area. It is one of the most widely spoken Native American languages with almost 170,000 Americans speaking Navajo at home as of 2011.</p></li>
 <li><p><strong>Armenian:</strong> The Armenian language is an Indo-European language spoken by the Armenians. It is the official language of the Republic of Armenia and the self-proclaimed Nagorno-Karabakh Republic. It has historically been spoken throughout the Armenian Highlands and today is widely spoken in the Armenian diaspora. In total the language has 6 million speakers.</p></li>
-<li><p><strong>Surprise Language 1</strong> </p></li>
-<li><strong>Surprise Langauge 2</strong></li>
+<li><p><strong>Surprise Language 1:</strong> Language and training data will be revealed only at evaluation time.</p></li>
+<li><p><strong>Surprise Language 2:</strong> Language and training data will be revealed only at evaluation time.</p></li>
 </ul>
+
+<font color=red>!!!list the number of tags for each language?</font>
+
+<h2>
+<a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Shared Tasks</h2>
+
+<p>The 2016 shared task omits some interesting aspects of the problem.  In future, it 
+might be fruitful to consider some extensions:</p>
+<ul>
+<li>Providing multiple source forms (i.e., paradigm completion)
+<li>Providing a word's source and target contexts, in lieu of source and target tags
+<li>Derivational morphology (instead of just inflectional morphology)
+<li>Cross-modal learning (both phonological and orthographic data provided)
+<li>Cross-lingual learning (some of the languages are related to one another)
+</ul>
+</p>
+
+<font color=red>!!!should we consider any of these this year?</font>
 
 <h2>
 <a id="bibliography" class="anchor" href="#bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bibliography</h2>
+
+<font color=red>!!!ADD HYPERLINKS TO BIBLIOGRAPHY AND TEXT CITATIONS</font>
 
 <ul>
 <li>Greg Durrett, John DeNero. Supervised Learning of Complete Morphological Paradigms. NAACL. 2013.</li>
@@ -205,7 +268,12 @@ processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Spe
 <li>Sylak-Glassman, John, Kirov, Christo,  Yarowsky, David and Que, Roger. A Language-Independent Feature Schema for Inflectional Morphology. ACL. 2015.</li>
 </ul>
 
-<p>Please direct all correspondence regarding the shared task to <a href="mailto:ryan.cotterell@gmail.com">ryan.cotterell@gmail.com</a>.</p>
+<h2>
+<a id="organizers" class="anchor" href="#organizers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organizers</h2>
+
+
+
+<p>Please direct all correspondence regarding the shared task to <a href="mailto:!!!DEDICATED CONTACT ADDRESS"><font color=red>!!!DEDICATED CONTACT ADDRESS</font></a>.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/ryancotterell/sigmorphon2016">SIGMORPHON 2016 Shared Task: Morphological Reinflection</a> is maintained by <a href="https://github.com/ryancotterell">ryancotterell</a>.</span>
@@ -218,3 +286,7 @@ processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Spe
   
   </body>
 </html>
+
+
+
+
