@@ -42,13 +42,11 @@ approaches taken and their results.</p>
 <a id="dates" class="anchor" href="#dates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dates</h3>
 
 <ul>
-<li>October 1, 2015 - training data released </li>
-<li>Fall 2016 (<font color=red>!!!TBD</font>) - evaluation script released </li>
-<li>Spring 2016 (<font color=red>!!!TBD</font>) - training data for surprise languages released</li>
-<li>Spring 2016 (<font color=red>!!!TBD</font>) - test input data released; participants run systems</li>
+<li>TBD - training data released </li>
+<li>TBD - evaluation script and baseline system released </li>
+<li>TBD - training data for surprise languages released</li>
+<li>TBD - test input data released; participants run systems</li>
 </ul>
-
-<font color=red>!!! Do we also want to release a very simple baseline system that illustrates the calling conventions (command-line flags etc.)?</font>
 
 <h2>
 <a id="inflectional-morphology" class="anchor" href="#inflectional-morphology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inflectional Morphology</h2>
@@ -67,13 +65,13 @@ approaches taken and their results.</p>
 <h3>
 <a id="task-1--inflection" class="anchor" href="#task-1--inflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1 – Inflection</h3>
 
-Given a <b>lemma</b> (the dictionary form of a word), generate a target inflected form.
+Given a <b>lemma</b> (the dictionary form of a word) with its part-of-speech, generate a target inflected form.
 
 <p><strong>English example</strong></p>
 
 <blockquote>
 <p>Source Form: <code>run</code><br>
-Source Tag: Lemma <font color=red>!!!should we indicate Noun_Lemma vs. Verb_Lemma?</font><br>
+Source Tag: Lemma Verb <br>
 Target Tag: <code>Present participle</code></p>
 
 <p>Output: <code>running</code></p>
@@ -82,9 +80,9 @@ Target Tag: <code>Present participle</code></p>
 <p>Recent high-performance systems include Hulden et al. (2014) and Nicolai, Cherry and Kondrak (2015).</p>
 
 <ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/setting1/train">Train</a> <font color=red>!!!BROKEN LINK</font></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/setting1/dev">Dev</a> <font color=red>!!!BROKEN LINK</font></li>
-<li>Test</li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/dev">Dev</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/test">Test</a></li></li>
 </ul>
 
 <h3>
@@ -96,7 +94,7 @@ Target Tag: <code>Present participle</code></p>
 
 <blockquote>
 <p>Source Form: <code>ran</code><br>
-Source Tag: <code>Past</code><br>
+Source Tag: <code>Past tense</code><br>
 Target Tag: <code>Present participle</code></p>
 
 <p>Output: <code>running</code></p>
@@ -105,9 +103,9 @@ Target Tag: <code>Present participle</code></p>
 <!-- Note that Task 1 is a special case of Task 2 where the source tag is guaranteed to be <code>Lemma</code>.  One possible strategy for Task 2 is to reconstruct the lemma as an intermediate step (<code>ran</code> ↦ <code>run</code> ↦ <code>running</code>), which would involve solving Task 1 in reverse as well as Task 1. -->
 
 <ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/dev">Dev</a></li>
-<li>Test</li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/dev">Dev</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/test">Test</a></li>
 </ul>
 
 <h3>
@@ -129,9 +127,9 @@ Target Tag: <code>Present participle</code></p>
 
 
 <ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/setting2/dev">Dev</a></li>
-<li>Test</li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task3/train">Train</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task3/dev">Dev</a></li>
+<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task3/test">Test</a>/li>
 </ul>
 
 
@@ -234,8 +232,6 @@ processing at the <a href="http://www.clsp.jhu.edu/">Center for Language and Spe
 <li><p><strong>Surprise Language 2:</strong> Language and training data will be revealed only at evaluation time.</p></li>
 </ul>
 
-<font color=red>!!!list the number of tags for each language?</font>
-
 <h2>
 <a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Shared Tasks</h2>
 
@@ -250,22 +246,19 @@ might be fruitful to consider some extensions:</p>
 </ul>
 </p>
 
-<font color=red>!!!should we consider any of these this year?</font>
-
 <h2>
 <a id="bibliography" class="anchor" href="#bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bibliography</h2>
 
-<font color=red>!!!ADD HYPERLINKS TO BIBLIOGRAPHY AND TEXT CITATIONS</font>
-
 <ul>
-<li>Greg Durrett, John DeNero. Supervised Learning of Complete Morphological Paradigms. NAACL. 2013.</li>
-<li>Markus Dreyer, Jason Eisner. Discovering Morphological Paradigms from Plain Text Using a Dirichlet Process Mixture Model. EMNLP. 2011.</li>
-<li>Markus Dreyer, Jason Eisner. Graphical Models over Multiple Strings. EMNLP. 2009.</li>
-<li>Ramy Eskander, Nizar Habash, Owen Rambow. Automatic Extraction of Morphological Lexicons from Morphologically Annotated Corpora. EMNLP 2013. </li>
-<li>Nicolai, Garrett  and  Cherry, Colin  and  Kondrak, Grzegorz. Inflection Generation as Discriminative String Transduction. NAACL 2015. </li>
-<li>Mans Hulden, Markus Forsberg, Malin Ahlberg. Semi-supervised learning of morphological paradigms and lexicons. EACL. 2014.</li>
-<li>Ahlberg, Malin  and  Forsberg, Markus  and  Hulden, Mans. Paradigm classification in supervised learning of morphology. NAACL. 2015. </li>
-<li>Sylak-Glassman, John, Kirov, Christo,  Yarowsky, David and Que, Roger. A Language-Independent Feature Schema for Inflectional Morphology. ACL. 2015.</li>
+<li><a href="http://www.aclweb.org/anthology/N13-1138">Greg Durrett and John DeNero. Supervised Learning of Complete Morphological Paradigms. In NAACL, 2013.</a></li>
+<li><a href="http://www.aclweb.org/anthology/D11-1057">Markus Dreyer and Jason Eisner. Discovering Morphological Paradigms from Plain Text Using a Dirichlet Process Mixture Model. In EMNLP, 2011.</a></li>
+<li><a href="http://www.aclweb.org/anthology/D09-1011">Markus Dreyer and Jason Eisner. Graphical Models over Multiple Strings. In EMNLP, 2009.</a></li>
+<li><a href="http://www.aclweb.org/anthology/D08-1113">Markus Dreyer, Jason Smith and Jason Eisner. Latent-Variable Modeling of String Transductions with Finite-State Methods. In EMNLP, 2008.</a></li>
+<li><a href="http://www.aclweb.org/anthology/D13-1105.pdf">Ramy Eskander, Nizar Habash and Owen Rambow. Automatic Extraction of Morphological Lexicons from Morphologically Annotated Corpora. In EMNLP, 2013. </a></li>
+<li><a href="http://www.aclweb.org/anthology/N15-1093">Garret Nicolai, Colin Cherry and Grzegorz Kondrak. Inflection Generation as Discriminative String Transduction. In NAACL, 2015. </a></li>
+<li><a href="http://aclweb.org/anthology/E/E14/E14-1060.pdf">Mans Hulden, Markus Forsberg and Malin Ahlberg. Semi-supervised Learning of Morphological Paradigms and Lexicons. In EACL, 2014.</a></li>
+<li><a href="http://www.aclweb.org/anthology/N15-1107">Malin Ahlberg, Markus Forsberg and Mans Hulden. Paradigm Classification in Supervised Learning of Morphology. In NAACL, 2015. </a></li>
+<li><a href="http://www.aclweb.org/anthology/P15-2111">John Sylak-Glassman, Christo Kirov, David Yarowsky and Roger Que. A Language-Independent Feature Schema for Inflectional Morphology. In ACL. 2015.</li>
 </ul>
 
 <h2>
@@ -273,7 +266,7 @@ might be fruitful to consider some extensions:</p>
 
 
 
-<p>Please direct all correspondence regarding the shared task to <a href="mailto:!!!DEDICATED CONTACT ADDRESS"><font color=red>!!!DEDICATED CONTACT ADDRESS</font></a>.</p>
+<p>Please direct all correspondence regarding the shared task to <a href="mailto:sigmorphon2016sharedtask@gmail.com">sigmorphon2016sharedtask@gmail.com</a>.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/ryancotterell/sigmorphon2016">SIGMORPHON 2016 Shared Task: Morphological Reinflection</a> is maintained by <a href="https://github.com/ryancotterell">ryancotterell</a>.</span>
