@@ -70,9 +70,10 @@ Given a <b>lemma</b> (the dictionary form of a word) with its part-of-speech, ge
 <p><strong>English example</strong></p>
 
 <blockquote>
-<p>Source Form: <code>run</code><br>
-Source Tag: Lemma Verb <br>
-Target Tag: <code>Present participle</code></p>
+<p>Part of speech: <code>Verb</code><br>
+Source form: <code>run</code><br>
+Source tag: Lemma <br>
+Target tag: <code>Present participle</code></p>
 
 <p>Output: <code>running</code></p>
 </blockquote>
@@ -93,14 +94,15 @@ Target Tag: <code>Present participle</code></p>
 <p><strong>English example</strong></p>
 
 <blockquote>
-<p>Source Form: <code>ran</code><br>
-Source Tag: <code>Past tense</code><br>
-Target Tag: <code>Present participle</code></p>
+<p>Part of speech: <code>Verb</code><br>
+Source form: <code>ran</code><br>
+Source tag: <code>Past</code><br>
+Target tag: <code>Present participle</code></p>
 
 <p>Output: <code>running</code></p>
 </blockquote>
 
-<!-- Note that Task 1 is a special case of Task 2 where the source tag is guaranteed to be <code>Lemma</code>.  One possible strategy for Task 2 is to reconstruct the lemma as an intermediate step (<code>ran</code> ↦ <code>run</code> ↦ <code>running</code>), which would involve solving Task 1 in reverse as well as Task 1. -->
+<p>Task 2 is a harder case of Task 1, since the source tag is no longer guaranteed to be <code>Lemma</code>. <!-- One possible strategy for Task 2 is to reconstruct the lemma as an intermediate step (<code>ran</code> ↦ <code>run</code> ↦ <code>running</code>), which would involve solving Task 1 in reverse as well as Task 1. --></p>
 
 <ul>
 <li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/train">Train</a></li>
@@ -116,14 +118,15 @@ Target Tag: <code>Present participle</code></p>
 <p><strong>English example</strong></p>
 
 <blockquote>
-<p>Source Form: <code>ran</code><br>
-Source Tag: not given<br>
-Target Tag: <code>Present participle</code></p>
+<p>Part of speech: <code>Verb</code><br>
+Source form: <code>ran</code><br>
+Source tag: not given<br>
+Target tag: <code>Present participle</code></p>
 
 <p>Output: <code>running</code></p>
 </blockquote>
 
-<!-- <p>One possible strategy for task is to predict the source tag and then proceed as in Task 2.</p> -->
+<p>Task 3 is a harder case of Task 2, since the source tag is no longer provided.<!-- One possible strategy for task is to predict the source tag and then proceed as in Task 2. --></p>
 
 
 <ul>
@@ -194,8 +197,7 @@ senses of English lemma <code>hang</code> have
 different <code>Past</code> forms, <code>hung</code>
 and <code>hanged</code>.  In Task 3, the English verb <code>lay</code>
 could be a <code>Present</code> or <code>Past</code> form,
-with <code>Past participle</code> forms of <code>laid</code>
-and <code>lain</code> respectively.</p>
+of different verbs whose <code>Past participle</code> forms are respectively <code>laid</code> and <code>lain</code>.</p>
 
 <p>We will evaluate on each language separately.  An aggregate evaluation
 will weight all languages equally, including the 2 surprise
@@ -250,21 +252,21 @@ might be fruitful to consider some extensions:</p>
 <a id="bibliography" class="anchor" href="#bibliography" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bibliography</h2>
 
 <ul>
-<li><a href="http://www.aclweb.org/anthology/N13-1138">Greg Durrett and John DeNero. Supervised Learning of Complete Morphological Paradigms. In NAACL, 2013.</a></li>
-<li><a href="http://www.aclweb.org/anthology/D11-1057">Markus Dreyer and Jason Eisner. Discovering Morphological Paradigms from Plain Text Using a Dirichlet Process Mixture Model. In EMNLP, 2011.</a></li>
-<li><a href="http://www.aclweb.org/anthology/D09-1011">Markus Dreyer and Jason Eisner. Graphical Models over Multiple Strings. In EMNLP, 2009.</a></li>
-<li><a href="http://www.aclweb.org/anthology/D08-1113">Markus Dreyer, Jason Smith and Jason Eisner. Latent-Variable Modeling of String Transductions with Finite-State Methods. In EMNLP, 2008.</a></li>
-<li><a href="http://www.aclweb.org/anthology/D13-1105.pdf">Ramy Eskander, Nizar Habash and Owen Rambow. Automatic Extraction of Morphological Lexicons from Morphologically Annotated Corpora. In EMNLP, 2013. </a></li>
-<li><a href="http://www.aclweb.org/anthology/N15-1093">Garret Nicolai, Colin Cherry and Grzegorz Kondrak. Inflection Generation as Discriminative String Transduction. In NAACL, 2015. </a></li>
-<li><a href="http://aclweb.org/anthology/E/E14/E14-1060.pdf">Mans Hulden, Markus Forsberg and Malin Ahlberg. Semi-supervised Learning of Morphological Paradigms and Lexicons. In EACL, 2014.</a></li>
-<li><a href="http://www.aclweb.org/anthology/N15-1107">Malin Ahlberg, Markus Forsberg and Mans Hulden. Paradigm Classification in Supervised Learning of Morphology. In NAACL, 2015. </a></li>
-<li><a href="http://www.aclweb.org/anthology/P15-2111">John Sylak-Glassman, Christo Kirov, David Yarowsky and Roger Que. A Language-Independent Feature Schema for Inflectional Morphology. In ACL, 2015.</li>
+<li>Malin Ahlberg, Markus Forsberg and Mans Hulden. <a href="http://www.aclweb.org/anthology/N15-1107">Paradigm Classification in Supervised Learning of Morphology.</a> In NAACL 2015. </li>
+<li>Markus Dreyer and Jason Eisner. <a href="http://www.aclweb.org/anthology/D11-1057">Discovering Morphological Paradigms from Plain Text Using a Dirichlet Process Mixture Model.</a> In EMNLP 2011.</li>
+<li>Markus Dreyer and Jason Eisner. <a href="http://www.aclweb.org/anthology/D09-1011">Graphical Models over Multiple Strings.</a> In EMNLP 2009.</li>
+<li>Markus Dreyer, Jason Smith and Jason Eisner. <a href="http://www.aclweb.org/anthology/D08-1113">Latent-Variable Modeling of String Transductions with Finite-State Methods.</a> In EMNLP 2008.</li>
+<li>Greg Durrett and John DeNero. <a href="http://www.aclweb.org/anthology/N13-1138">Supervised Learning of Complete Morphological Paradigms.</a> In NAACL 2013.</li>
+<li>Ramy Eskander, Nizar Habash and Owen Rambow. <a href="http://www.aclweb.org/anthology/D13-1105.pdf">Automatic Extraction of Morphological Lexicons from Morphologically Annotated Corpora.</a> In EMNLP 2013. </li>
+<li>Mans Hulden, Markus Forsberg and Malin Ahlberg. <a href="http://aclweb.org/anthology/E/E14/E14-1060.pdf">Semi-supervised Learning of Morphological Paradigms and Lexicons.</a> In EACL 2014.</li>
+<li>Garret Nicolai, Colin Cherry and Grzegorz Kondrak. <a href="http://www.aclweb.org/anthology/N15-1093">Inflection Generation as Discriminative String Transduction.</a> In NAACL 2015. </li>
+<li>John Sylak-Glassman, Christo Kirov, David Yarowsky and Roger Que. <a href="http://www.aclweb.org/anthology/P15-2111">A Language-Independent Feature Schema for Inflectional Morphology.</a> In ACL 2015.</li>
 </ul>
 
 <h2>
-<a id="organizers" class="anchor" href="#organizers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organizers</h2>
+<a id="organizers" class="anchor" href="#organizers" aria-hidden="true"><span class="octicon octicon-link"></span>Organizers</h2>
 
-
+<font color=red>Organizer names and affiliations will be listed here.</font>
 
 <p>Please direct all correspondence regarding the shared task to <a href="mailto:sigmorphon2016sharedtask@gmail.com">sigmorphon2016sharedtask@gmail.com</a>.</p>
 
