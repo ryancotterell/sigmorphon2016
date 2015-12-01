@@ -58,7 +58,7 @@ approaches taken and their results.</p>
 <h2>
 <a id="the-tasks" class="anchor" href="#the-tasks" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Tasks</h2>
 
-<p>There are actually three similar tasks.  Your system may compete on any or all of the three tasks.  Training examples and development examples will be provided for each task. 
+<p>There are actually three similar tasks.  Your system may compete on any or all of the three tasks.  Training examples and development examples will be provided for each task. All the data are located <b><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/">here</a></b>. 
   For each language, the possible inflections are named by a given finite set of morphological <b>tags</b>.
 </p>
 
@@ -78,12 +78,6 @@ Target tag: <code>Present participle</code></p>
 
 <p>Recent high-performance systems include Hulden et al. (2014) and Nicolai, Cherry and Kondrak (2015).</p>
 
-<ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task1/dev">Dev</a></li>
-<li>Test</li></li>
-</ul>
-
 <h3>
 <a id="task-2--reinflection" class="anchor" href="#task-2--reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2 – Reinflection</h3>
 
@@ -101,12 +95,6 @@ Target tag: <code>Present participle</code></p>
 
 <p>Task 2 is a harder case of Task 1, since the source tag is no longer guaranteed to be <code>Lemma</code>. <!-- One possible strategy for Task 2 is to reconstruct the lemma as an intermediate step (<code>ran</code> ↦ <code>run</code> ↦ <code>running</code>), which would involve solving Task 1 in reverse as well as Task 1. --></p>
 
-<ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task2/dev">Dev</a></li>
-<li>Test</li>
-</ul>
-
 <h3>
 <a id="task-3--unlabeled-reinflection" class="anchor" href="#task-3--unlabeled-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Unlabeled Reinflection</h3>
 
@@ -123,14 +111,6 @@ Target tag: <code>Present participle</code></p>
 </blockquote>
 
 <p>Task 3 is a harder case of Task 2, since the source tag is no longer provided.<!-- One possible strategy for task is to predict the source tag and then proceed as in Task 2. --></p>
-
-
-<ul>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task3/train">Train</a></li>
-<li><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/task3/dev">Dev</a></li>
-<li>Test</li>
-</ul>
-
 
 <h3>
 <a id="possible-strategies" class="anchor" href="#additional-details-and-possible-strategies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Possible Strategies</h3>
