@@ -5,7 +5,7 @@
     <title>SIGMORPHON 2016 Shared Task: Morphological Reinflection by ryancotterell</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link ref='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -43,16 +43,22 @@ approaches taken and their results.</p>
 
 <ul>
 <li>December 1, 2015 - <a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/">training data</a> and <a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/src/evalm.py">evaluation script</a> released </li>
-<li>December 1, 2015 - baseline system released </li>
+<li>December 1, 2015 - <a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/src/baseline">baseline system</a> released </li>
 <li>April 1, 2016 - training data for surprise languages released</li>
 <li>April 20, 2016 - test input data released; participants run systems</li>
 </ul>
+
+<h3>
+<a id="dates" class="anchor" href="#venue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Venue</h3>
+
+<p>The results of the shared task will be presented at the SIGMORPHON workshop held at <A HREF="http://acl2016.org/">ACL 2016</A> in Berlin.</p>
 
 <h2>
 <a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloads</h2>
 <ul>
 <li><h3><b><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/">Training and development data</a></b></h3></li>
 <li><h3><b><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/src/evalm.py">Evaluation Script</a></b></h3></li>
+<li><h3><b><a href="https://github.com/ryancotterell/sigmorphon2016/tree/master/src/baseline">Baseline</a></b></h3></li>
 <li> Monolingual Corpora (Bonus Resources): <a href="https://dumps.wikimedia.org/eswiki/20151102/eswiki-20151102-pages-articles-multistream.xml.bz2"> Spanish</a>,<a href="https://dumps.wikimedia.org/dewiki/20151102/dewiki-20151102-pages-articles-multistream.xml.bz2"> German</a>, <a href="https://dumps.wikimedia.org/fiwiki/20151102/fiwiki-20151102-pages-articles-multistream.xml.bz2"> Finnish</a>, <a href="https://dumps.wikimedia.org/ruwiki/20151102/ruwiki-20151102-pages-articles-multistream.xml.bz2">Russian</a>, <a href="https://dumps.wikimedia.org/trwiki/20151102/trwiki-20151102-pages-articles-multistream.xml.bz2"> Turkish</a>, <a href="https://dumps.wikimedia.org/kawiki/20151102/kawiki-20151102-pages-articles-multistream.xml.bz2"> Georgian</a>,  <a href="https://dumps.wikimedia.org/nvwiki/20151102/nvwiki-20151102-pages-articles-multistream.xml.bz2"> Navajo</a>, <a href="https://dumps.wikimedia.org/arwiki/20151102/arwiki-20151102-pages-articles-multistream.xml.bz2"> Arabic</a> 
 </li>
 </ul>
@@ -130,6 +136,11 @@ Target tag: <code>Present participle</code></p>
 <p>Alternatively, you can solve the tasks in sequence.  For instance, reduce Task 2 to Task 1 by recovering an inflected form's lemma given its tag, and then reduce Task 3 to Task 2 by recovering an inflected form's tag.</p>
 
 <p>An <b>inflectional paradigm</b> is a table that lists all inflected forms for some lemma.  Rather than treating the training examples as independent, you could assemble them into partial paradigms based on shared input or output forms.  You could then jointly analyze the partial paradigms to better discover latent structure in the observed forms and to better extrapolate to unobserved forms (Dreyer and Eisner 2009, 2011; Durrett and DeNero 2013; Hulden et al. 2014; Nicolai et al. 2015).
+
+<h2>
+<a id="baseline" class="anchor" href="#baseline" aria-hidden="true"><span class="octicon octicon-link"></span></a>A Baseline System</h3>
+<p>We provide a baseline system that can be used as a starting point for experiments, or simply for comparison.  The system implements a discriminative string transduction, similar in spirit to other recent approaches such as Durrett and DeNero (2013) and Nicolai et al. (2015).  The implementation and a description is <A HREF="https://github.com/ryancotterell/sigmorphon2016/tree/master/src/baseline">available here</A>.</p>
+
 
 <h2>
 <a id="bonus-resources" class="anchor" href="#bonus-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus Resources</h2>
@@ -221,6 +232,39 @@ million people. </p></li>
 <li><p><strong>Surprise Language 1:</strong> Language and training data will be revealed only at evaluation time.</p></li>
 <li><p><strong>Surprise Language 2:</strong> Language and training data will be revealed only at evaluation time.</p></li>
 </ul>
+
+<h2>
+<a id="data-format" class="anchor" href="#data-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data format</h2>
+
+
+<p>The <A HREF="https://github.com/ryancotterell/sigmorphon2016/tree/master/data/">training and development data</A> is provided in a simple utf-8 encoded text format where each line in a file is an example that consists of word forms and corresponding morphosyntactic descriptions (MSDs) provided as a set feature/value pairs.  The fields on a line are <strong>TAB</strong>-separated.</p>
+
+<h3>
+<a id="user-content-task-1" class="anchor" href="#task-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 1</h3>
+
+<p>For task 1, the fields are: <code>lemma</code>, <code>MSD</code>, <code>target form</code>.  An example from the Spanish training data:</p>
+
+<pre><code>hablar  pos=V,mood=IND,polite=FORM,tense=FUT,per=3,num=SG       hablará
+</code></pre>
+
+<h3>
+<a id="user-content-task-2" class="anchor" href="#task-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 2</h3>
+
+<p>In task 2, the fields are: <code>source MSD</code>, <code>source form</code>, <code>target MSD</code>, <code>target form</code>. For example:</p>
+
+<pre><code>pos=V,mood=IND,tense=PRS,per=1,num=SG,aspect=IPFV/PFV   hablo   pos=V,tense=PST,gen=MASC,num=PL hablados
+</code></pre>
+
+<h3>
+<a id="user-content-task-3" class="anchor" href="#task-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3</h3>
+
+<p>In task 3, the fields are: <code>source form</code>, <code>target MSD</code>, <code>target form</code>.  For example:</p>
+
+<pre><code>hablo   pos=V,tense=PST,gen=MASC,num=PL hablados
+</code></pre>
+
+<p>When evaluating, the purpose in all tasks is to reconstruct the word form in the last field, given information in the previous fields.</p>
+
 
 <h2>
 <a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Shared Tasks</h2>
