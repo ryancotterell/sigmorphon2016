@@ -4,14 +4,15 @@
 # SIGMORPHON shared task 2016                                #
 # Script to run baseline on all tasks against training data  #
 # and provide evaluation.                                    #
+# -MH20151205                                                #
 ##############################################################
 
-mkdir -p ./../../data/baseline
 path="./../../data/"
+mkdir -p $path"baseline"
 
 for t in {1..3}
 do
-    for f in ./../../data/*-task1-train; do
+    for f in $path*-task1-train; do
 	language=$(echo $f | sed s/-task1-train// | sed s/.*data.//)
 
 	set -x
