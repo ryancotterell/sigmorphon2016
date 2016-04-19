@@ -87,7 +87,7 @@ overview paper that describes the task and summarizes the different
 <a id="the-tasks" class="anchor" href="#the-tasks" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Tasks</h2>
 
 <p>There are actually three similar tasks.  Your system may compete on any or all of the three tasks.  Training examples and development examples will be provided for each task.  
-  For each language, the possible inflections are named by a given finite set of morphological <b>tags</b>.
+  For each language, the possivble inflections are named by a given finite set of morphological <b>tags</b>.
 </p>
 
 <h3>
@@ -123,8 +123,6 @@ Target tag: <code>Present participle</code></p>
 
 <p>Task 2 is a harder case of Task 1, since the source tag is no longer guaranteed to be <code>Lemma</code>. <!-- One possible strategy for Task 2 is to reconstruct the lemma as an intermediate step (<code>ran</code> ↦ <code>run</code> ↦ <code>running</code>), which would involve solving Task 1 in reverse as well as Task 1. --></p>
 
-<p>When solving a task, participants may use training data for lower-numbered tasks without it being considered to be a bonus resource.  That is, when solving task 2, using task 1 data is permitted.  Likewise, when solving task 3, both task 2 and task 1 training data can be used.  We encourage participants to, if possible, <em>run various systems</em>, and report which training data they have used for task 2 and 3.  Knowing how well task 2 (or 3) can be solved using only task 2 (or 3) data as opposed to also using data from lower-numbered tasks is valuable extra information.</p>
-
 <h3>
 <a id="task-3--unlabeled-reinflection" class="anchor" href="#task-3--unlabeled-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Unlabeled Reinflection</h3>
 
@@ -141,6 +139,8 @@ Target tag: <code>Present participle</code></p>
 </blockquote>
 
 <p>Task 3 is a harder case of Task 2, since the source tag is no longer provided.<!-- One possible strategy for task is to predict the source tag and then proceed as in Task 2. --></p>
+
+<p>When solving a task, participants may use training data for lower-numbered tasks without it being considered to be a bonus resource.  That is, when solving task 2, using task 1 data is permitted.  Likewise, when solving task 3, both task 2 and task 1 training data can be used.  We encourage participants to, if possible, <em>run various systems</em>, and report which training data they have used for task 2 and 3.  Knowing how well task 2 (or 3) can be solved using only task 2 (or 3) data as opposed to also using data from lower-numbered tasks is valuable extra information.</p>
 
 <h3>
 <a id="possible-strategies" class="anchor" href="#additional-details-and-possible-strategies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Possible Strategies</h3>
