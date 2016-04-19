@@ -123,6 +123,8 @@ Target tag: <code>Present participle</code></p>
 
 <p>Task 2 is a harder case of Task 1, since the source tag is no longer guaranteed to be <code>Lemma</code>. <!-- One possible strategy for Task 2 is to reconstruct the lemma as an intermediate step (<code>ran</code> ↦ <code>run</code> ↦ <code>running</code>), which would involve solving Task 1 in reverse as well as Task 1. --></p>
 
+<p>When solving a task, participants may use training data for lower-numbered tasks without it being considered to be a bonus resource.  That is, when solving task 2, using task 1 data is permitted.  Likewise, when solving task 3, both task 2 and task 1 training data can be used.  We encourage participants to, if possible, <em>run various systems</em>, and report which training data they have used for task 2 and 3.  Knowing how well task 2 (or 3) can be solved using only task 2 (or 3) data as opposed to also using data from lower-numbered tasks is valuable extra information.</p>
+
 <h3>
 <a id="task-3--unlabeled-reinflection" class="anchor" href="#task-3--unlabeled-reinflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task 3 – Unlabeled Reinflection</h3>
 
@@ -169,14 +171,15 @@ Target tag: <code>Present participle</code></p>
   <ul>
     <li>Task 1 could use Task 2's data for multi-task learning (e.g., learning the Past → Gerund mapping might help with learning the Lemma → Gerund mapping).</li> 
     <li>Task 2 could use Task 3's data as additional incomplete training data.</li>
-    <li>Task 3 could use Task 2's data as additional super-complete training data, to help construct and train a model with latent tags.</li>
-    <li>All tasks could use Task 2's data to help bootstrap an unsupervised tagger for the monolingual corpus.</li>
   </ul></p>
 <li><p>The test <i>inputs</i> for all tasks in the same language (transductive learning).  The Task 2 example shown above reveals that <code>ran</code> can be a <code>Past</code> form.  This could help Task 3 predict the <code>Past</code> form of <code>runs</code>.</p> </li>
 </ul>
 
+<p>Note that, as described above, using lower-numbered task training data is <em>not considered a bonus resource</em>. Task 2 may use task 1 data, and task 3 may use task 1 and 2 training data.</p>
+
 <p>It is not required to use these bonus resources.  They are permitted in order to make the task more realistic, to allow more freedom to develop interesting approaches, and because it would be difficult to exclude their use.</p>
 
+<p>We encourage participants to experiment with various approaches and to document clearly which training data and bonus resources were used.</p>
 <h2>
 <a id="evaluation" class="anchor" href="#evaluation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evaluation</h2>
 
