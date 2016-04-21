@@ -1,0 +1,15 @@
+desgajar pos=V,mood=IND,tense=PRS,gen=MASC,per=1,num=PL
+desgajamosa
+desgajamosb
+desgajamosc
+desgajamos
+
+captar pos=V,mood=IND,tense=PST,gen=MASC,per=3,num=SG,aspect=PFV
+captó
+captób
+captóa
+
+caminar pos=V,tense=PST,gen=MASC,num=PL
+caminados
+caminado
+caminad
