@@ -192,7 +192,7 @@ def dumb_align(wordpairs, align_symbol):
     return alignedpairs
     
 def mcmc_align(wordpairs, align_symbol):
-    a = align.Aligner(wordpairs, align_symbol = align_symbol)
+    a = align.Aligner(wordpairs, align_symbol = align_symbol, random_seed = 42)
     return a.alignedpairs
     
 def med_align(wordpairs, align_symbol):
