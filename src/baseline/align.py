@@ -38,10 +38,12 @@ libalign_getpairs_advance = libalign.getpairs_advance
 libalign_getpairs_advance.restype = c_void_p
 libalign_align_init = libalign.align_init
 libalign_align_init.restype = None
+libalign_align_init_with_seed = libalign.align_init_with_seed
+libalign_align_init.restype = None
 
 class Aligner:
 
-    def __init__(self, wordpairs, align_symbol = u' ', iterations = 10, burnin = 5, lag = 1, mode = 'crp'):
+    def __init__(self, wordpairs, align_symbol = u' ', iterations = 10, burnin = 5, lag = 1, mode = 'crp', random_seed = None):
         s = set(u''.join((x[0] + x[1] for x in wordpairs)))
         self.symboltoint = dict(zip(s, xrange(1,len(s)+1)))
         self.inttosymbol = {v:k for k, v in self.symboltoint.items()}
@@ -53,7 +55,11 @@ class Aligner:
             intout = map(lambda x: self.symboltoint[x], o) + [-1]
             intpairs.append((intin, intout))
 
-        libalign_align_init()
+        if random_seed:
+            libalign_align_init_with_seed(random_seed)
+        else:
+            libalign_align_init()
+            
         for i, o in intpairs:
             icint = (c_int * len(i))(*i)
             ocint = (c_int * len(o))(*o)

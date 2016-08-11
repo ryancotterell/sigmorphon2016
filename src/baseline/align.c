@@ -74,6 +74,12 @@ void align_init(void) {
 	g_stringpairs_tail = NULL;	
 }
 
+void align_init_with_seed(long seed) {
+        g_stringpairs = NULL;
+        g_stringpairs_tail = NULL;      
+        srand48(seed);
+}
+
 int intseqlen(int *seq) {
     int i;
     for (i = 0; seq[i] != -1; i++) { }
